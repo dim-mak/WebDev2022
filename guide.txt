@@ -1,0 +1,10 @@
+Pull & Push 
+----------------
+git add .
+git commit -m 
+git pull --rebase 
+git push
+
+New branch 
+----------------
+
