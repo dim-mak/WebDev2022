@@ -1,0 +1,72 @@
+body {
+    font-family: 'Manrope', 'Roboto', sans-serif;
+}
+
+section h1 {
+    color: #1d3557;
+    text-align: center !important;
+    font-size: 2.5em;
+    margin: 2% auto;
+}
+
+section h2 {
+    color: #1d3557;
+    text-align: center !important;
+    font-size: 1.5em;
+    margin: 2% auto;
+}
+
+section .col-md-4,
+section .col-md-2,
+section .col-md-11,
+section .col-xl-2 {
+    color: #1d3557;
+    font-weight: bold;
+}
+
+section button {
+    width: 100%;
+    margin-top: 2% !important;
+    background-color: #457b9d !important;
+    border-color: #457b9d !important;
+    color: #f1faee !important;
+}
+
+section button:hover {
+    background-color: #1d3557 !important;
+    border-color: #1d3557 !important;
+}
+
+.pay-buttons {
+    margin-bottom: 5%;
+}
+
+section .row {
+    margin-bottom: 1%;
+}
+
+section svg {
+    width: 80px;
+}
+
+#credit-card .alert {
+    margin: 0 auto;
+    text-align: center;
+    width: 32%;
+    margin-bottom: 2%;
+}
+
+#paypal .alert {
+    margin: 0 auto;
+    text-align: center;
+    width: 82%;
+    margin-bottom: 5%;
+}
+
+@media (max-width: 426px) {
+
+    #credit-card .alert,
+    #paypal .alert {
+        width: 100%;
+    }
+}
