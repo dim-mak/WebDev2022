@@ -8,3 +8,5 @@ git push
 New branch 
 ----------------
 
+git checkout -b branch-name  
+
