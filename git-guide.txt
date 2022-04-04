@@ -7,7 +7,6 @@ git push
 
 New branch 
 ----------------
-
 git checkout -b branch-name (only for creation) 
 
 git checkout branch-name
