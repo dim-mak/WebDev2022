@@ -59,6 +59,13 @@ section small {
 	color: #1d3557;
 }
 
+.alert {
+	margin: 0 auto;
+	text-align: center;
+	width: 85%;
+	max-width: 1224px;
+}
+
 
 @media (max-width: 575px) {
 	section .col-md {
@@ -72,10 +79,16 @@ section small {
 	}
 }
 
-.alert {
-	margin: 0 auto;
-	text-align: center;
-	width: 60%;
+@media (max-width: 767px) {
+	.alert {
+		width: 65%;
+	}
+}
+
+@media (max-width: 425px) {
+	.alert {
+		width: 90%;
+	}
 }
 
 

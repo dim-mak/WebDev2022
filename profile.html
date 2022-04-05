@@ -34,7 +34,6 @@
 
 	<script src="assets/js/header_connected.js"></script>
 
-	<!-- TODO: ADD LABELS !!!!! -->
 	<section>
 		<div id="prof-title">
 			<h1><b>Profile</b>
@@ -51,23 +50,25 @@
 			<h2>Personal Information</h2>
 			<div class="row">
 				<div class="col-md">
-					<input type="text" class="form-control" placeholder="First Name" id="prof_first" required
-						disabled />
+					<label for="prof_first">First Name</label>
+					<input type="text" class="form-control" id="prof_first" requireddisabled />
 				</div>
 
 				<div class="col-md">
-					<input type="text" class="form-control" placeholder="Last Name" id="prof_last" required disabled />
+					<label for="prof_last">Last Name</label>
+					<input type="text" class="form-control" id="prof_last" requireddisabled />
 				</div>
 			</div>
 
 			<div class="row">
 				<div class="col-md">
-					<input type="email" class="form-control" placeholder="Email" id="prof_email" required disabled />
+					<label for="prof_email">Email</label>
+					<input type="email" class="form-control" id="prof_email" required disabled />
 				</div>
 
 				<div class="col-md">
+					<label for="prof_sex">Gender</label>
 					<select id="prof_sex" class="form-control" required disabled>
-						<option value="default_sex" selected disabled>Gender</option>
 						<option value="man">Male</option>
 						<option value="woman">Female</option>
 					</select>
@@ -77,32 +78,38 @@
 			<h2>Address</h2>
 			<div class="row">
 				<div class="col-md">
-					<input type="text" class="form-control" placeholder="Street" id="prof_str" disabled />
+					<label for="prof_str">Street</label>
+					<input type="text" class="form-control" id="prof_str" disabled />
 				</div>
 
 				<div class="col-md">
-					<input type="text" class="form-control" placeholder="Number" id="prof_num" disabled />
+					<label for="prof_num">Number</label>
+					<input type="text" class="form-control" id="prof_num" disabled />
 				</div>
 			</div>
 
 			<div class="row">
 				<div class="col-md">
-					<input type="text" class="form-control" placeholder="City" id="prof_city" disabled />
+					<label for="prof_city">City</label>
+					<input type="text" class="form-control" id="prof_city" disabled />
 				</div>
 
 				<div class="col-md">
-					<input type="text" class="form-control" placeholder="Region" id="prof_state" disabled />
+					<label for="prof_state">Region</label>
+					<input type="text" class="form-control" id="prof_state" disabled />
 				</div>
 
 			</div>
 
 			<div class="row">
 				<div class="col-md">
-					<input type="text" class="form-control" placeholder="Zip code" id="prof_taxcode" disabled />
+					<label for="prof_taxcode">Zip Code</label>
+					<input type="text" class="form-control" id="prof_taxcode" disabled />
 				</div>
 
 				<div class="col-md">
-					<input type="text" class="form-control" placeholder="Country" id="prof_country" disabled />
+					<label for="prof_country">Country</label>
+					<input type="text" class="form-control" id="prof_country" disabled />
 				</div>
 			</div>
 

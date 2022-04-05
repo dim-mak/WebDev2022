@@ -18,8 +18,7 @@ section h2 {
 
 section .col-md-4,
 section .col-md-2,
-section .col-md-11,
-section .col-xl-2 {
+section .col-md-11 {
     color: #1d3557;
     font-weight: bold;
 }
@@ -54,6 +53,7 @@ section svg {
     text-align: center;
     width: 32%;
     margin-bottom: 2%;
+    max-width: 415px;
 }
 
 #paypal .alert {
@@ -63,10 +63,22 @@ section svg {
     margin-bottom: 5%;
 }
 
-@media (max-width: 426px) {
+@media (max-width: 767px) {
 
     #credit-card .alert,
     #paypal .alert {
         width: 100%;
+    }
+}
+
+@media (max-width: 1200px) {
+
+    #credit-card .alert,
+    #paypal .alert {
+        width: 90%;
+    }
+
+    .modal button {
+        width: 90%;
     }
 }

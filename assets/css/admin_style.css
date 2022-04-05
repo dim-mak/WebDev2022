@@ -50,6 +50,15 @@ section label {
     max-width: 504px;
 }
 
+section button a {
+    text-decoration: none;
+    color: #f1faee;
+}
+
+section button a:hover {
+    color: #f1faee;
+}
+
 @media (max-width: 767px) {
     #alerts {
         width: 90% !important;

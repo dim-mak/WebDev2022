@@ -202,3 +202,12 @@ section h1 {
   background-color: #1d3557 !important;
   border-color: #1d3557 !important;
 }
+
+#proceed_btn a {
+  text-decoration: none;
+  color: #f1faee;
+}
+
+#proceed_btn a:hover {
+  text-decoration: none;
+}
