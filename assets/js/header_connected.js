@@ -1,36 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
+const template_hc = document.createElement('template');
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- CSS -->
-  <link rel="stylesheet" href="assets/css/header_style.css" />
-
-  <!-- Bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300&display=swap" rel="stylesheet">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
-
-  <!-- Title -->
-  <title>AirSky</title>
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/x-icon" href="assets/img/favicon.png">
-</head>
-
-<body>
-
-  <header>
+template_hc.innerHTML = `
+<header>
     <div class="container-fluid">
       <div class="row">
         <div class="col-xs-12">
@@ -104,7 +75,6 @@
       </div>
     </div>
   </header>
+`
 
-</body>
-
-</html>
+document.body.appendChild(template_hc.content)

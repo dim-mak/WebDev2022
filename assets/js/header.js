@@ -1,36 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
+const template_h = document.createElement('template');
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- CSS -->
-  <link rel="stylesheet" href="assets/css/header_style.css" />
-
-  <!-- Bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300&display=swap" rel="stylesheet">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
-
-  <!-- Title -->
-  <title>AirSky</title>
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/x-icon" href="assets/img/favicon.png">
-</head>
-
-<body>
-
-  <header>
+template_h.innerHTML = `
+<header>
     <div class="container-fluid">
       <div class="row">
         <div class="col-xs-12">
@@ -74,27 +45,28 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link active navbar-buttons" href="profile.html" role="button">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="50"
+                  <a class="nav-link active navbar-buttons" href="register.html" role="button">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user-plus" width="50"
                       height="50" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
                       stroke-linecap="round" stroke-linejoin="round">
                       <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                      <circle cx="12" cy="7" r="4"></circle>
-                      <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path>
+                      <circle cx="9" cy="7" r="4"></circle>
+                      <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path>
+                      <path d="M16 11h6m-3 -3v6"></path>
                     </svg>
-                    <p>Account</p>
+                    <p>Register</p>
                   </a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link active navbar-buttons" href="profile.html" role="button">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-logout" width="50"
+                <li class="nav-item" id="connect">
+                  <a class="nav-link active navbar-buttons" href="login.html" role="button">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-login" width="50"
                       height="50" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
                       stroke-linecap="round" stroke-linejoin="round">
                       <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                       <path d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2"></path>
-                      <path d="M7 12h14l-3 -3m0 6l3 -3"></path>
+                      <path d="M20 12h-13l3 -3m0 6l-3 -3"></path>
                     </svg>
-                    <p>Log out</p>
+                    <p>Log in</p>
                   </a>
                 </li>
               </ul>
@@ -104,7 +76,6 @@
       </div>
     </div>
   </header>
+`
 
-</body>
-
-</html>
+document.body.appendChild(template_h.content)

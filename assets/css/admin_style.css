@@ -47,9 +47,10 @@ section label {
     text-align: center;
     width: 35%;
     margin-bottom: 5%;
+    max-width: 504px;
 }
 
-@media (max-width: 426px) {
+@media (max-width: 767px) {
     #alerts {
         width: 90% !important;
     }

@@ -78,8 +78,6 @@ checkBox.addEventListener('change', (event) => {
         tripStartCol.classList.remove('col-lg-2');
         tripStartCol.classList.add('col-lg-4');
 
-        /* FIXME: when disabled dissapear (fix columns ...) or placeholder (bad idea)
-        or clear (bad idea for check/uncheck and appearence) */
     } else {
         tripEnd.disabled = false;
         tripEndCol.classList.remove('hide');
@@ -100,10 +98,8 @@ images[2] = 'assets/img/slideshow3.jpg';
 images[3] = 'assets/img/slideshow4.jpg';
 images[4] = 'assets/img/slideshow5.jpg';
 
-var sectionElement = document.getElementById('search-section');
-
 function changePicture(i) {
-    document.getElementById("img12").src = images[i];
+    document.getElementById("slideshow").src = images[i];
     i++;
     setTimeout(() => { changePicture(i % 5) }, 6000);
 }
