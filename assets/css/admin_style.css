@@ -62,3 +62,15 @@ section label {
 .modal #alerts {
     width: 80%;
 }
+
+.table {
+    color: #1d3557 !important
+}
+
+.table th {
+    font-size: 1.3em;
+}
+
+.table tr {
+    text-align: center;
+}
