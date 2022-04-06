@@ -50,14 +50,14 @@
         <form class="container">
             <div class="row justify-content-md-center">
                 <div class="col-md-5">
-                    <label for="flight_code">Enter flight code</label>
-                    <input type="text" class="form-control" placeholder="AK-1032" id="flight_code" required />
+                    <label for="up-flight_code">Enter flight code</label>
+                    <input type="text" class="form-control" placeholder="AK-1032" id="up-flight_code" required />
                 </div>
             </div>
 
             <div class="row justify-content-md-center">
                 <div class="col text-center">
-                    <button class="btn btn-primary" type="submit" id="admin-update-btn" data-bs-toggle="modal"
+                    <button class="btn btn-primary" type="submit" id="up-admin-update-btn" data-bs-toggle="modal"
                         data-bs-target="#update-modal">
                         Update
                     </button>
@@ -76,9 +76,9 @@
                         <form class="container">
                             <form class="container">
                                 <div class="row justify-content-md-center">
-                                    <div class="col-lg-5" id="from">
-                                        <label for=add_from>Departure</label>
-                                        <input type="search" class="form-control" list="cities" id="add_from"
+                                    <div class="col-lg-5">
+                                        <label for=up-from>Departure</label>
+                                        <input type="search" class="form-control" list="cities" id="up-from"
                                             placeholder="Type airport" required>
                                         <datalist id="cities">
                                             <option value="Athens Eleftherios Venizelos International Airport - Athens">
@@ -90,9 +90,9 @@
                                         </datalist>
                                     </div>
 
-                                    <div class="col-lg-5" id="to">
-                                        <label for=add_to>Destination</label>
-                                        <input type="search" class="form-control" list="cities" id="add_to"
+                                    <div class="col-lg-5">
+                                        <label for=up-to>Destination</label>
+                                        <input type="search" class="form-control" list="cities" id="up-to"
                                             placeholder="Type airport" required>
                                         <datalist id="cities">
                                             <option value="Athens Eleftherios Venizelos International Airport - Athens">
@@ -107,32 +107,32 @@
 
 
                                 <div class="row justify-content-md-center">
-                                    <div class="col-lg-5" id="depart-col">
-                                        <label for="trip-start-date">Depart Date</label>
-                                        <input type="date" class="form-control" id="trip-start-date" required>
+                                    <div class="col-lg-5">
+                                        <label for="up-trip-start-date">Depart Date</label>
+                                        <input type="date" class="form-control" id="up-trip-start-date" required>
                                     </div>
 
-                                    <div class="col-lg-5" id="depart-col">
-                                        <label for="trip-start-time">Depart Time</label>
-                                        <input type="time" class="form-control" id="trip-start-time">
+                                    <div class="col-lg-5">
+                                        <label for="up-trip-start-time">Depart Time</label>
+                                        <input type="time" class="form-control" id="up-trip-start-time">
                                     </div>
                                 </div>
 
                                 <div class="row justify-content-md-center">
-                                    <div class="col-lg-5" id="arrival-col">
-                                        <label for="trip-end-date">Arrival Date</label>
-                                        <input type="date" class="form-control" id="trip-end-date" required>
+                                    <div class="col-lg-5">
+                                        <label for="up-trip-end-date">Arrival Date</label>
+                                        <input type="date" class="form-control" id="up-trip-end-date" required>
                                     </div>
 
-                                    <div class="col-lg-5" id="arrival-col">
-                                        <label for="trip-end-time">Arrival Time</label>
-                                        <input type="time" class="form-control" id="trip-end-time">
+                                    <div class="col-lg-5">
+                                        <label for="up-trip-end-time">Arrival Time</label>
+                                        <input type="time" class="form-control" id="up-trip-end-time">
                                     </div>
                                 </div>
 
                                 <div class="row justify-content-md-center">
                                     <div class="col text-center">
-                                        <button class="btn btn-primary" type="submit" id="admin-add-btn">
+                                        <button class="btn btn-primary" type="submit" id="up-admin-add-btn">
                                             Update
                                         </button>
                                     </div>
@@ -169,5 +169,6 @@
     <script src="assets/js/admin_footer.js"></script>
 
 </body>
+<script src="assets/js/admin_update_scripts.js"></script>
 
 </html>
