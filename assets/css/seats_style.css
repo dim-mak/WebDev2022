@@ -189,9 +189,8 @@ section h1 {
 #proceed {
   position: sticky;
   bottom: 30px;
-  left: 0;
-  right: 100%;
-  display: inline-block;
+  right: 80px;
+  float: right;
 }
 
 #proceed_btn {
