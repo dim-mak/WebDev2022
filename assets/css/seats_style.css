@@ -186,11 +186,15 @@ section h1 {
   margin-right: 8px;
 }
 
-#proceed_btn {
-  position: relative;
+#proceed {
+  position: sticky;
   bottom: 30px;
-  left: 1000px;
+  left: 0;
+  right: 100%;
   display: inline-block;
+}
+
+#proceed_btn {
   margin: 2% !important;
   background-color: #457b9d !important;
   border-color: #457b9d !important;
