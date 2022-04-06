@@ -44,15 +44,12 @@ document.getElementById("trip-end-date").setAttribute("min", tomorrow);
 tripStart.addEventListener('change', (event) => {
     var minTripEnd = new Date();
     var tripStartVal = tripStart.valueAsDate;
-    minTripEnd.setDate(tripStartVal.getDate());
-    minTripEnd = translateDate(minTripEnd);
+    minTripEnd = translateDate(tripStartVal);
     document.getElementById("trip-end-date").setAttribute("min", minTripEnd);
 });
 
 // tripStart is default trip end date 
 tripStart.addEventListener('change', (event) => {
-    var tempTripEnd = new Date();
     var tripStartVal = tripStart.valueAsDate;
-    tempTripEnd.setDate(tripStartVal.getDate());
-    document.querySelector('[id="trip-end-date"]').valueAsDate = tempTripEnd;
+    document.querySelector('[id="trip-end-date"]').valueAsDate = tripStartVal;
 });
