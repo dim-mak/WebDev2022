@@ -54,3 +54,12 @@ section .hide {
 	height: 500px;
 	object-fit: cover;
 }
+
+#search_btn a {
+	text-decoration: none;
+	color: #f1faee;
+}
+
+#search_btn a:hover {
+	text-decoration: none;
+}
