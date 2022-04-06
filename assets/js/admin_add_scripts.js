@@ -1,5 +1,3 @@
-// Dates
-
 // function dates --> strings
 function translateDate(date) {
     var dd = date.getDate();
@@ -16,6 +14,8 @@ function translateDate(date) {
 
     return transDate
 }
+
+// Dates for admin_add
 
 // start & end vars for accesing html
 var tripStart = document.getElementById("trip-start-date");
@@ -53,3 +53,4 @@ tripStart.addEventListener('change', (event) => {
     var tripStartVal = tripStart.valueAsDate;
     document.querySelector('[id="trip-end-date"]').valueAsDate = tripStartVal;
 });
+
