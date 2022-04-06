@@ -53,6 +53,15 @@ section label {
     font-size: 1.2em;
 }
 
+#prof_btn_tickets a {
+    text-decoration: none;
+    color: #f1faee;
+}
+
+#prof_btn_tickets a:hover {
+    text-decoration: none;
+}
+
 @media (max-width: 575px) {
     section .col-md {
         margin-bottom: 1%;
