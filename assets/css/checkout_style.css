@@ -72,18 +72,7 @@ section .pay-btn a {
     color: #f1faee;
 }
 
-#credit-card .alert {
-    margin: 0 auto;
-    text-align: center;
-    width: 32%;
-    margin-bottom: 2%;
-    max-width: 415px;
-}
-
-#paypal .alert {
-    margin: 0 auto;
-    text-align: center;
-    width: 82%;
+section .modal .col-md-5 {
     margin-bottom: 5%;
 }
 
@@ -96,11 +85,6 @@ section .pay-btn a {
 }
 
 @media (max-width: 1200px) {
-
-    #credit-card .alert,
-    #paypal .alert {
-        width: 90%;
-    }
 
     .modal button {
         width: 90%;
