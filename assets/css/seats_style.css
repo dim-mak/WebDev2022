@@ -188,11 +188,9 @@ section h1 {
 }
 
 #proceed {
-  position: sticky;
-  bottom: 30px;
-  right: 80px;
-  float: right;
+  text-align: center;
 }
+
 
 #proceed_btn {
   margin: 2% !important;
