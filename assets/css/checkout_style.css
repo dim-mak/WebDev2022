@@ -67,6 +67,11 @@ section svg {
     width: 80px;
 }
 
+section .pay-btn a {
+    text-decoration: none;
+    color: #f1faee;
+}
+
 #credit-card .alert {
     margin: 0 auto;
     text-align: center;
