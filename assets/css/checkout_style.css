@@ -2,7 +2,8 @@ body {
     font-family: 'Manrope', 'Roboto', sans-serif;
 }
 
-header, footer {
+header,
+footer {
     min-height: 15vh;
 }
 
@@ -43,6 +44,15 @@ section button {
 section button:hover {
     background-color: #1d3557 !important;
     border-color: #1d3557 !important;
+}
+
+section .btn-close {
+    background-color: white !important;
+}
+
+section .btn-close:hover {
+    background-color: white !important;
+    border-color: white !important;
 }
 
 .pay-buttons {
