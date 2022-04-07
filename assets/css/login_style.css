@@ -1,52 +1,58 @@
 body {
     font-family: 'Manrope', 'Roboto', sans-serif;
-    background-image: url(../img/login_bg.jpg);  
+    background-image: url(../img/login_bg.jpg);
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-header, footer {
+header,
+footer {
     min-height: 15vh;
 }
 
 section {
     min-height: 70vh;
 }
-  
+
+section #submit_btn a {
+    text-decoration: none;
+    color: #f1faee !important;
+}
+
 #logo {
     width: auto;
     height: 130px;
     padding-bottom: 1.5em;
 }
-  
+
 #submit_btn {
     margin: 5% !important;
     margin-top: 8% !important;
-    background-color: #457b9d !important; 
+    background-color: #457b9d !important;
     border-color: #457b9d !important;
     color: #f1faee !important;
     font-weight: bold;
 }
-  
+
 #submit_btn:hover {
     background-color: #1d3557 !important;
     border-color: #1d3557 !important;
 }
-  
+
 section a {
     color: #1d3557 !important;
 }
 
 section {
-	margin-bottom: 15%;
+    margin-bottom: 15%;
 }
-  
+
 .card-body {
     padding-bottom: 0% !important;
     margin-bottom: 0% !important;
     padding-top: 0% !important;
 }
-  
+
 .card {
     margin: 0;
     position: absolute;
@@ -57,7 +63,7 @@ section {
     padding-top: 10% !important;
 }
 
-  
+
 #mail {
     margin-bottom: 5%;
     width: 85%;
@@ -78,7 +84,7 @@ section {
     padding-left: 8%;
     padding-top: 5%;
 }
-  
+
 #forgot_pswd {
     display: inline;
     margin-left: 27%;
@@ -107,10 +113,10 @@ section {
         background-color: #457b9d !important;
         background-image: none !important;
     }
-	
-	section {
-		margin-bottom: 40% !important;
-	}
+
+    section {
+        margin-bottom: 40% !important;
+    }
 }
 
 
@@ -132,40 +138,36 @@ section {
         padding-top: 0%;
         justify-content: center !important;
     }
-      
-    #forgot_pswd { 
+
+    #forgot_pswd {
         margin-left: auto;
         margin-right: auto;
         display: block;
         text-align: center !important;
-       
+
     }
 
 }
 
 
 @media (max-width: 460px) {
-	section {
-		margin-bottom: 60% !important;
-	}
+    section {
+        margin-bottom: 60% !important;
+    }
 }
 
 @media (max-width: 420px) {
-	#logo {
-		height: 100px;
-		width: auto;
-	}
-	
-	section {
-		margin-bottom: 70% !important;
-	}
+    #logo {
+        height: 100px;
+        width: auto;
+    }
+
+    section {
+        margin-bottom: 70% !important;
+    }
 }
 
 
 .alert-danger {
-	margin-top: 5%;
+    margin-top: 5%;
 }
-
-
-  
-  
