@@ -1,0 +1,62 @@
+body {
+    font-family: 'Manrope', 'Roboto', sans-serif;
+}
+
+section h1,
+section h2,
+section h3 {
+    color: #1d3557;
+    text-align: center !important;
+}
+
+section h1 {
+    font-size: 2.5em;
+    margin-bottom: 3%;
+    padding-top: 3%;
+}
+
+section h2 {
+    font-size: 1.7em;
+}
+
+section h3 {
+    font-size: 1.2em;
+}
+
+section p {
+    color: #1d3557;
+    font-size: 1.2em;
+}
+
+section hr {
+    height: 1px;
+    background-color: #457b9d;
+    border: 0;
+}
+
+section .card {
+    width: 50%;
+    margin: 2% auto;
+    box-shadow: 4px 4px 10px 1px #0000008c;
+}
+
+section .col {
+    text-align: center;
+}
+
+section .gold p {
+    color: goldenrod;
+}
+
+section .bussiness p {
+    color: #887f77;
+}
+
+section .prices {
+    font-size: 0.7em;
+    font-weight: bold;
+}
+
+section a {
+    text-decoration: none;
+}
