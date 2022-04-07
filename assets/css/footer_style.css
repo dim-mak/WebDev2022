@@ -1,5 +1,5 @@
 body {
-    font-family: 'Manrope', 'Roboto', sans-serif;
+	font-family: 'Manrope', 'Roboto', sans-serif;
 }
 
 footer {
@@ -7,7 +7,7 @@ footer {
 }
 
 .footer-copyright {
-	background-color: #10243f; 
+	background-color: #10243f;
 	color: #f1faee;
 	font-size: 1.1em;
 }
@@ -18,31 +18,32 @@ footer .container {
 
 #company_name {
 	text-decoration: none;
-    color: #e63946;
+	color: #e63946;
 }
 
 #company_name:hover {
-    text-decoration: underline;
+	text-decoration: underline;
 }
 
 footer #logo {
 	width: 300px;
-    height: auto;
+	height: auto;
 }
 
 footer #logo-img {
 	display: flex;
-    align-items: center;
+	align-items: center;
 }
 
-#com-title, #info-title {
+#com-title,
+#info-title {
 	color: #f1faee;
 	font-size: 1.8em;
 }
 
 .social_media {
 	text-decoration: none;
-    color: #f1faee;
+	color: #f1faee;
 }
 
 .social_media:hover {
@@ -51,7 +52,7 @@ footer #logo-img {
 
 
 footer .col {
-    text-align: center;
+	text-align: center;
 	margin-top: 3% !important;
 }
 
@@ -59,12 +60,14 @@ footer .col {
 	color: #f1faee;
 }
 
-#loc, #info a {
+#loc,
+#info a {
 	text-decoration: none;
 	color: #f1faee;
 }
 
-#loc:hover, #info a:hover {
+#loc:hover,
+#info a:hover {
 	color: #e63946;
 }
 
@@ -85,7 +88,7 @@ footer .col {
 	footer .col {
 		display: block !important;
 	}
-	
+
 	footer #logo {
 		width: 500px;
 		height: auto;
@@ -99,10 +102,9 @@ footer .col {
 		height: auto;
 		text-align: center;
 	}
-	
+
 	footer #logo-img {
 		text-align: center;
 		justify-content: center;
 	}
 }
-

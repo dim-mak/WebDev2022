@@ -4,6 +4,14 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+header, footer {
+    min-height: 15vh;
+}
+
+section {
+    min-height: 70vh;
+}
   
 #logo {
     width: auto;
