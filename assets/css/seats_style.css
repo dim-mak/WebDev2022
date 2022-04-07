@@ -2,6 +2,14 @@ body {
   font-family: 'Manrope', 'Roboto', sans-serif;
 }
 
+header, footer {
+  min-height: 15vh;
+}
+
+section {
+  min-height: 70vh;
+}
+
 section h1 {
   color: #1d3557;
   text-align: center !important;
@@ -188,11 +196,9 @@ section h1 {
 }
 
 #proceed {
-  position: sticky;
-  bottom: 30px;
-  right: 80px;
-  float: right;
+  text-align: center;
 }
+
 
 #proceed_btn {
   margin: 2% !important;
