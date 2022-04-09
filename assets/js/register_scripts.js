@@ -1,6 +1,6 @@
 function checkPassword() {
-    var pswd = document.getElementById('reg_pswd').value;
-    var pswdConf = document.getElementById('reg_pswd_conf').value;
+    const pswd = document.querySelector('#reg_pswd').value;
+    const pswdConf = document.querySelector('#reg_pswd_conf').value;
 
     if (pswd != pswdConf) {
         alert("Passwords are not the same");

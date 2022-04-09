@@ -1,8 +1,8 @@
 // function dates --> strings
 function translateDate(date) {
-    var dd = date.getDate();
-    var mm = date.getMonth() + 1; //January is 0 so need to add 1 to make it 1
-    var yyyy = date.getFullYear();
+    let dd = date.getDate();
+    let mm = date.getMonth() + 1; //January is 0 so need to add 1 to make it 1
+    let yyyy = date.getFullYear();
     if (dd < 10) {
         dd = '0' + dd
     }
@@ -10,19 +10,20 @@ function translateDate(date) {
         mm = '0' + mm
     }
 
-    var transDate = yyyy + '-' + mm + '-' + dd;
+    let transDate = yyyy + '-' + mm + '-' + dd;
 
     return transDate
 }
 
 // Dates for admin_update
-var upTripStart = document.getElementById("up-trip-start-date");
-var upTripEnd = document.getElementById("up-trip-end-date");
+const upTripStart = document.querySelector('#up-trip-start-date');
+const upTripEnd = document.querySelector('#up-trip-end-date');
+
 
 // tripStart is min trip end date
 upTripStart.addEventListener('change', (event) => {
-    var minUpTripEnd = new Date();
-    var upTripStartVal = upTripStart.valueAsDate;
+    let minUpTripEnd = new Date();
+    const upTripStartVal = upTripStart.valueAsDate;
     minUpTripEnd = translateDate(upTripStartVal);
     document.getElementById("up-trip-end-date").setAttribute("min", minUpTripEnd);
 });

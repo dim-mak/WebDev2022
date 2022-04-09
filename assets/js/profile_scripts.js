@@ -1,15 +1,15 @@
-var fname = document.getElementById('prof_first');
-var lname = document.getElementById('prof_last');
-var email = document.getElementById('prof_email');
-var sex = document.getElementById('prof_sex');
-var str = document.getElementById('prof_str');
-var num = document.getElementById('prof_num');
-var city = document.getElementById('prof_city');
-var state = document.getElementById('prof_state');
-var taxcode = document.getElementById('prof_taxcode');
-var country = document.getElementById('prof_country');
-var btn_edit = document.getElementById('prof_btn_edit');
-var btn_save = document.getElementById('prof_btn_save');
+const fname = document.querySelector('#prof_first');
+const lname = document.querySelector('#prof_last');
+const email = document.querySelector('#prof_email');
+const sex = document.querySelector('#prof_sex');
+const str = document.querySelector('#prof_str');
+const num = document.querySelector('#prof_num');
+const city = document.querySelector('#prof_city');
+const state = document.querySelector('#prof_state');
+const taxcode = document.querySelector('#prof_taxcode');
+const country = document.querySelector('#prof_country');
+const btn_edit = document.querySelector('#prof_btn_edit');
+const btn_save = document.querySelector('#prof_btn_save');
 
 btn_edit.classList.remove("hide");
 btn_save.classList.add("hide");
