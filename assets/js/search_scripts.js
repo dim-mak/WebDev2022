@@ -2,9 +2,9 @@
 
 // function dates --> strings
 function translateDate(date) {
-    var dd = date.getDate();
-    var mm = date.getMonth() + 1; //January is 0 so need to add 1 to make it 1
-    var yyyy = date.getFullYear();
+    let dd = date.getDate();
+    let mm = date.getMonth() + 1; //January is 0 so need to add 1 to make it 1
+    let yyyy = date.getFullYear();
     if (dd < 10) {
         dd = '0' + dd
     }
@@ -12,64 +12,62 @@ function translateDate(date) {
         mm = '0' + mm
     }
 
-    var transDate = yyyy + '-' + mm + '-' + dd;
+    let transDate = yyyy + '-' + mm + '-' + dd;
 
     return transDate
 }
 
 // start & end vars for accesing html
-var tripStart = document.getElementById("trip-start");
-var tripEnd = document.getElementById("trip-end");
-
+const tripStart = document.querySelector('#trip-start');
+const tripEnd = document.querySelector('#trip-end');
 
 // *init* default start & end trip dates
-var defTripStart = new Date(); //today
-var defTripEnd = new Date();
+const defTripStart = new Date(); //today
+let defTripEnd = new Date();
 
 defTripEnd.setDate(defTripStart.getDate() + 7); //7 days after
 
-document.querySelector('[id="trip-start"]').valueAsDate = defTripStart;
-document.querySelector('[id="trip-end"]').valueAsDate = defTripEnd;
+tripStart.valueAsDate = defTripStart;
+tripEnd.valueAsDate = defTripEnd;
 
 
 // today is min trip start date
-var today = new Date();
-today = translateDate(today)
-document.getElementById("trip-start").setAttribute("min", today);
+let today1 = new Date();
+today1 = translateDate(today1)
+tripStart.setAttribute("min", today1);
 
 
 // *init* today + 1 is the default min trip end date
-var today = new Date();
-var tomorrow = new Date();
-tomorrow.setDate(today.getDate() + 1);
+const today2 = new Date();
+let tomorrow = new Date();
+tomorrow.setDate(today2.getDate() + 1);
 tomorrow = translateDate(tomorrow);
-document.getElementById("trip-end").setAttribute("min", tomorrow);
+tripEnd.setAttribute("min", tomorrow);
 
 
 // tripStart + 1 day is min trip end date
 tripStart.addEventListener('change', (event) => {
-    var minTripEnd = new Date();
-    var tripStartVal = tripStart.valueAsDate;
+    let minTripEnd = new Date();
+    const tripStartVal = tripStart.valueAsDate;
     minTripEnd.setDate(tripStartVal.getDate() + 1);
     minTripEnd = translateDate(minTripEnd);
-    document.getElementById("trip-end").setAttribute("min", minTripEnd);
+    tripEnd.setAttribute("min", minTripEnd);
 });
 
 
 // tripStart + 7 days is default trip end date 
 tripStart.addEventListener('change', (event) => {
-    var tempTripEnd = new Date();
-    var tripStartVal = tripStart.valueAsDate;
+    let tempTripEnd = new Date();
+    let tripStartVal = tripStart.valueAsDate;
     tempTripEnd.setDate(tripStartVal.getDate() + 7);
-    document.querySelector('[id="trip-end"]').valueAsDate = tempTripEnd;
+    tripEnd.valueAsDate = tempTripEnd;
 });
 
 
 // checkBox 
-var checkBox = document.getElementById("trip-type");
-var tripStartCol = document.getElementById("depart-col");
-var tripEndCol = document.getElementById("return-col");
-
+const checkBox = document.querySelector("#trip-type");
+const tripStartCol = document.querySelector("#depart-col");
+const tripEndCol = document.querySelector("#return-col");
 
 checkBox.addEventListener('change', (event) => {
     if (checkBox.checked == true) {
@@ -88,9 +86,11 @@ checkBox.addEventListener('change', (event) => {
 
 
 // Slideshow
-var i = 0;
-var images = [];
+let i = 0;
+const images = [];
 const slideTime = 6000;
+
+const slideShow = document.querySelector('#slideshow');
 
 images[0] = 'assets/img/slideshow1.jpg';
 images[1] = 'assets/img/slideshow2.jpg';
@@ -99,7 +99,7 @@ images[3] = 'assets/img/slideshow4.jpg';
 images[4] = 'assets/img/slideshow5.jpg';
 
 function changePicture(i) {
-    document.getElementById("slideshow").src = images[i];
+    slideShow.src = images[i];
     i++;
     setTimeout(() => { changePicture(i % 5) }, 6000);
 }

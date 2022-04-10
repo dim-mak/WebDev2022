@@ -1,8 +1,8 @@
 // function dates --> strings
 function translateDate(date) {
-    var dd = date.getDate();
-    var mm = date.getMonth() + 1; //January is 0 so need to add 1 to make it 1
-    var yyyy = date.getFullYear();
+    let dd = date.getDate();
+    let mm = date.getMonth() + 1; //January is 0 so need to add 1 to make it 1
+    let yyyy = date.getFullYear();
     if (dd < 10) {
         dd = '0' + dd
     }
@@ -10,7 +10,7 @@ function translateDate(date) {
         mm = '0' + mm
     }
 
-    var transDate = yyyy + '-' + mm + '-' + dd;
+    let transDate = yyyy + '-' + mm + '-' + dd;
 
     return transDate
 }
@@ -18,39 +18,39 @@ function translateDate(date) {
 // Dates for admin_add
 
 // start & end vars for accesing html
-var tripStart = document.getElementById("trip-start-date");
-var tripEnd = document.getElementById("trip-end-date");
+const tripStart = document.querySelector('#trip-start-date');
+const tripEnd = document.querySelector('#trip-end-date');
 
 // *init* default start & end trip dates
-var defTripStart = new Date(); //today
-var defTripEnd = new Date();
+const defTripStart = new Date(); //today
+const defTripEnd = new Date();
 
-document.querySelector('[id="trip-start-date"]').valueAsDate = defTripStart;
-document.querySelector('[id="trip-end-date"]').valueAsDate = defTripEnd;
+tripStart.valueAsDate = defTripStart;
+tripEnd.valueAsDate = defTripEnd;
 
 // today is min trip start date
-var today = new Date();
-today = translateDate(today)
-document.getElementById("trip-start-date").setAttribute("min", today);
+let today1 = new Date();
+today1 = translateDate(today1)
+tripStart.setAttribute("min", today1);
 
 // *init* today is the default min trip end date
-var today = new Date();
-var tomorrow = new Date();
-tomorrow.setDate(today.getDate());
+let today2 = new Date();
+let tomorrow = new Date();
+tomorrow.setDate(today2.getDate());
 tomorrow = translateDate(tomorrow);
-document.getElementById("trip-end-date").setAttribute("min", tomorrow);
+tripEnd.setAttribute("min", tomorrow);
 
 // tripStart is min trip end date
 tripStart.addEventListener('change', (event) => {
-    var minTripEnd = new Date();
-    var tripStartVal = tripStart.valueAsDate;
+    let minTripEnd = new Date();
+    const tripStartVal = tripStart.valueAsDate;
     minTripEnd = translateDate(tripStartVal);
-    document.getElementById("trip-end-date").setAttribute("min", minTripEnd);
+    tripEnd.setAttribute("min", minTripEnd);
 });
 
 // tripStart is default trip end date 
 tripStart.addEventListener('change', (event) => {
-    var tripStartVal = tripStart.valueAsDate;
-    document.querySelector('[id="trip-end-date"]').valueAsDate = tripStartVal;
+    let tripStartVal = tripStart.valueAsDate;
+    tripEnd.valueAsDate = tripStartVal;
 });
 
