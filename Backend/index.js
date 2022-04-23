@@ -42,8 +42,8 @@ db.all('SELECT * FROM USER WHERE user_id=12', (err, result) => {
         console.log(err);
     } else {
         console.log(result);
-        console.log(result[1].price);
-        console.log(result[2].type);
+        // console.log(result[1].price);
+        // console.log(result[2].type);
     }
 });
 
