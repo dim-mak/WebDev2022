@@ -37,7 +37,7 @@ app.listen(4000, () => {
 //     }
 // });
 
-db.all('SELECT * FROM SEAT_TYPE', (err, result) => {
+db.all('SELECT * FROM USER WHERE user_id=12', (err, result) => {
     if (err) {
         console.log(err);
     } else {

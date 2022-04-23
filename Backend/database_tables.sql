@@ -16,7 +16,7 @@ CREATE TABLE USER (
 	street_no VARCHAR(255) NOT NULL,
 	city VARCHAR(255) NOT NULL,
 	region VARCHAR(255),
-	zio_code VARCHAR(255) NOT NULL,
+	zip_code VARCHAR(255) NOT NULL,
 	country VARCHAR(255) NOT NULL
 );
 
