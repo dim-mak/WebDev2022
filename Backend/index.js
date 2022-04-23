@@ -10,28 +10,42 @@ let db = new sqlite3.Database("airsky.db", (err) => {
     else {
         console.log("DataBase Connected");
     }
-})
+});
 
 app.get("/", (req, res) => {
     res.send("Connection Established");
-})
+});
 
 // Server Running
 app.listen(4000, () => {
     console.log("Server started");
-})
+});
 
-/*
-db.run('INSERT INTO SEAT_TYPE(price, type) VALUES(100, "economy")', (err) => {
-    if (err) {
-        console.log('ERROR!', err)
-    }
-}) 
+// db.run('INSERT INTO SEAT_TYPE(price, type) VALUES(1500.8, "gold")', (err) => {
+//     if (err) {
+//         console.log('ERROR!', err);
+//     }
+// });
 
-db.get('SELECT * FROM SEAT_TYPE', (err, result) => {
+// db.get('SELECT * FROM SEAT_TYPE', (err, result) => {
+//     if (err) {
+//         console.log(err);
+//     } else {
+//         console.log(result);
+//         console.log(typeof (result));
+//         console.log(result.type);
+//     }
+// });
+
+db.all('SELECT * FROM SEAT_TYPE', (err, result) => {
     if (err) {
-        console.log(err)
+        console.log(err);
     } else {
-        console.log(result)
+        console.log(result);
+        console.log(result[1].price);
+        console.log(result[2].type);
     }
-}) */
+});
+
+
+db.close();
