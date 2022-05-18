@@ -1,3 +1,5 @@
+/* $env:DEBUG='myapp:*'; npm start */
+
 CREATE TABLE SEAT_TYPE (
 	seat_type_id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
 	price DECIMAL NOT NULL,
