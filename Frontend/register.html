@@ -48,35 +48,36 @@
     </div>
 
 
-    <form class="container">
+    <form class="container" action="/add" method="POST">
       <h2>Personal Information</h2>
       <div class="row">
         <div class="col-md">
-          <input type="text" class="form-control" placeholder="First Name" id="reg_first" required />
+          <input type="text" class="form-control" placeholder="First Name" id="reg_first" name="reg_first" required />
         </div>
 
         <div class="col-md">
-          <input type="text" class="form-control" placeholder="Last Name" id="reg_last" required />
+          <input type="text" class="form-control" placeholder="Last Name" id="reg_last" name="reg_last" required />
         </div>
       </div>
 
       <div class="row">
         <div class="col-md">
-          <input type="email" class="form-control" placeholder="Email" id="reg_email" required />
+          <input type="email" class="form-control" placeholder="Email" id="reg_email" name="reg_email" required />
         </div>
 
         <div class="col-md">
-          <select id="reg_sex" class="form-control" required>
+          <select id="reg_sex" class="form-control" name="reg_sex" required>
             <option value="default_sex" selected disabled>Gender</option>
-            <option value="man">Male</option>
-            <option value="woman">Female</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
           </select>
         </div>
       </div>
 
       <div class="row">
         <div class="col-md">
-          <input id="reg_pswd" type="password" class="form-control" placeholder="Password" id="reg_pswd" required />
+          <input id="reg_pswd" type="password" class="form-control" placeholder="Password" id="reg_pswd" name="reg_pswd"
+            required />
         </div>
 
         <div class="col-md">
@@ -95,32 +96,32 @@
       <h2>Address</h2>
       <div class="row">
         <div class="col-md">
-          <input type="text" class="form-control" placeholder="Street" id="reg_str" required />
+          <input type="text" class="form-control" placeholder="Street" id="reg_str" name="reg_str" required />
         </div>
 
         <div class="col-md">
-          <input type="text" class="form-control" placeholder="Number" id="reg_num" required />
+          <input type="text" class="form-control" placeholder="Number" id="reg_num" name="reg_num" required />
         </div>
       </div>
 
       <div class="row">
         <div class="col-md">
-          <input type="text" class="form-control" placeholder="City" id="reg_city" required />
+          <input type="text" class="form-control" placeholder="City" id="reg_city" name="reg_city" required />
         </div>
 
         <div class="col-md">
-          <input type="text" class="form-control" placeholder="Region" id="reg_state" />
+          <input type="text" class="form-control" placeholder="Region" id="reg_state" name="reg_state" />
         </div>
 
       </div>
 
       <div class="row">
         <div class="col-md">
-          <input type="text" class="form-control" placeholder="Zip code" id="reg_taxcode" required />
+          <input type="text" class="form-control" placeholder="Zip code" id="reg_taxcode" name="reg_taxcode" required />
         </div>
 
         <div class="col-md">
-          <input type="text" class="form-control" placeholder="Country" id="reg_country" required />
+          <input type="text" class="form-control" placeholder="Country" id="reg_country" name="reg_country" required />
         </div>
       </div>
 

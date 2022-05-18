@@ -37,7 +37,7 @@
 
     <section>
         <div>
-            <h1><b>Cancel flight</b>
+            <h1><b>Delete user</b>
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-plane" width="35"
                     height="35" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
                     stroke-linecap="round" stroke-linejoin="round">
@@ -51,15 +51,15 @@
         <form class="container">
             <div class="row justify-content-md-center">
                 <div class="col-md-5">
-                    <label for="flight_code">Enter flight code</label>
-                    <input type="text" class="form-control" placeholder="10320" id="flight_code" required />
+                    <label for="user-id">Enter user id</label>
+                    <input type="text" class="form-control" placeholder="10320" id="user-id" required />
                 </div>
             </div>
 
             <div class="row justify-content-md-center">
                 <div class="col text-center">
                     <button class="btn btn-primary" type="submit" id="admin-delete-btn">
-                        Cancel
+                        Delete
                     </button>
                 </div>
             </div>
@@ -68,12 +68,12 @@
         <div id="alerts">
             <div class="alert alert-success">
                 <!-- TODO: trigger when deleted-->
-                <strong>Flight successfully deleted.</strong>
+                <strong>User successfully deleted.</strong>
             </div>
 
             <div class="alert alert-danger">
                 <!-- TODO: trigger when not found  -->
-                <strong>Error</strong><br>Flight not found, try again.
+                <strong>Error</strong><br>User not found, try again.
             </div>
         </div>
 

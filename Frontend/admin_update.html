@@ -36,7 +36,7 @@
 
     <section>
         <div>
-            <h1><b>Update flight</b>
+            <h1><b>Update user</b>
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-plane" width="35"
                     height="35" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
                     stroke-linecap="round" stroke-linejoin="round">
@@ -50,8 +50,8 @@
         <form class="container">
             <div class="row justify-content-md-center">
                 <div class="col-md-5">
-                    <label for="up-flight_code">Enter flight code</label>
-                    <input type="text" class="form-control" placeholder="10320" id="up-flight_code" required />
+                    <label for="user-id">Enter user id</label>
+                    <input type="text" class="form-control" placeholder="10320" id="user-id" required />
                 </div>
             </div>
 
@@ -69,7 +69,7 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h2 class="modal-title">Flight Details</h2>
+                        <h2 class="modal-title">User Details</h2>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -78,71 +78,63 @@
                             <form class="container">
                                 <div class="row justify-content-md-center">
                                     <div class="col-lg-5">
-                                        <label for=up-from>Departure</label>
-                                        <input type="search" class="form-control" list="cities" id="up-from"
-                                            placeholder="Type airport" required>
-                                        <datalist id="cities">
-                                            <option value="Athens Eleftherios Venizelos International Airport - Athens">
-                                            <option
-                                                value="Heraklion International Nikos Kazantzakis Airport - Heraklion">
-                                            <option value="Kos Airport - Kos Island">
-                                            <option value="Kastelorizo Airport - Kastelorizo Island">
-                                            <option value="Ioannis Kapodistrias International Airport - Kerkyra Island">
-                                        </datalist>
+                                        <label for="fname">First Name</label>
+                                        <input type="text" class="form-control" id="fname" required>
                                     </div>
 
                                     <div class="col-lg-5">
-                                        <label for=up-to>Destination</label>
-                                        <input type="search" class="form-control" list="cities" id="up-to"
-                                            placeholder="Type airport" required>
-                                        <datalist id="cities">
-                                            <option value="Athens Eleftherios Venizelos International Airport - Athens">
-                                            <option
-                                                value="Heraklion International Nikos Kazantzakis Airport - Heraklion">
-                                            <option value="Kos Airport - Kos Island">
-                                            <option value="Kastelorizo Airport - Kastelorizo Island">
-                                            <option value="Ioannis Kapodistrias International Airport - Kerkyra Island">
-                                        </datalist>
+                                        <label for="lname">Last Name</label>
+                                        <input type="text" class="form-control" id="lname" required>
                                     </div>
                                 </div>
 
 
                                 <div class="row justify-content-md-center">
                                     <div class="col-lg-5">
-                                        <label for="up-trip-start-date">Depart Date</label>
-                                        <input type="date" class="form-control" id="up-trip-start-date" required>
+                                        <label for="sex">Gender</label>
+                                        <select id="sex_sex" class="form-control" required>
+                                            <option value="man">Male</option>
+                                            <option value="woman">Female</option>
+                                        </select>
                                     </div>
 
                                     <div class="col-lg-5">
-                                        <label for="up-trip-start-time">Depart Time</label>
-                                        <input type="time" class="form-control" id="up-trip-start-time">
+                                        <label for="email">Email</label>
+                                        <input type="text" class="form-control" id="email">
                                     </div>
                                 </div>
 
                                 <div class="row justify-content-md-center">
                                     <div class="col-lg-5">
-                                        <label for="up-trip-end-date">Arrival Date</label>
-                                        <input type="date" class="form-control" id="up-trip-end-date" required>
+                                        <label for="street">Street</label>
+                                        <input type="text" class="form-control" id="street" required>
                                     </div>
 
                                     <div class="col-lg-5">
-                                        <label for="up-trip-end-time">Arrival Time</label>
-                                        <input type="time" class="form-control" id="up-trip-end-time">
+                                        <label for="street-no">Street No</label>
+                                        <input type="text" class="form-control" id="street-no">
                                     </div>
                                 </div>
 
                                 <div class="row justify-content-md-center">
-                                    <div class="col-lg-10">
-                                        <label for="airline">Airline</label>
-                                        <input type="search" class="form-control" list="airlines" id="airline"
-                                            placeholder="Type airline" required>
-                                        <datalist id="airlines">
-                                            <option value="Aegean Airlines">
-                                            <option value="Lufthansa">
-                                            <option value="Olympic Air">
-                                            <option value="Ryanair">
-                                            <option value="Alitalia">
-                                        </datalist>
+                                    <div class="col-lg-5">
+                                        <label for="zip-code">City</label>
+                                        <input type="text" class="form-control" id="zip-code" required>
+                                    </div>
+                                    <div class="col-lg-5">
+                                        <label for="region">Region</label>
+                                        <input type="text" class="form-control" id="region" required>
+                                    </div>
+                                </div>
+
+                                <div class="row justify-content-md-center">
+                                    <div class="col-lg-5">
+                                        <label for="zip-code">Zip Code</label>
+                                        <input type="text" class="form-control" id="zip-code" required>
+                                    </div>
+                                    <div class="col-lg-5">
+                                        <label for="country">Country</label>
+                                        <input type="text" class="form-control" id="country" required>
                                     </div>
                                 </div>
 
@@ -160,12 +152,12 @@
                     <div id="alerts">
                         <div class="alert alert-success">
                             <!-- TODO: trigger when updated -->
-                            <strong>Flight successfully updated.</strong>
+                            <strong>User successfully updated.</strong>
                         </div>
 
                         <div class="alert alert-danger">
                             <!-- TODO: trigger when not found  -->
-                            <strong>Error</strong><br>Could not update flight, try again.
+                            <strong>Error</strong><br>Could not update user, try again.
                         </div>
                     </div>
 
@@ -176,7 +168,7 @@
         <div id="alerts">
             <div class="alert alert-danger">
                 <!-- TODO: trigger when not found  -->
-                <strong>Error</strong><br>Flight not found, try again.
+                <strong>Error</strong><br>User not found, try again.
             </div>
         </div>
 
