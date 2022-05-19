@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 const helmet = require('helmet');
 const rateLimit = require("express-rate-limit");
 
-const db = new sqlite3.Database("../airsky.db", (err) => {
+const db = new sqlite3.Database("./../airsky.db", (err) => {
   if (err) {
     console.log("Error Occurred - " + err.message);
   }
@@ -29,7 +29,7 @@ router.post('/add', function (req, res) {
           return console.log(err.message);
         }
         console.log("New user added");
-        res.send("New user has been added into the database with email = " + req.body.reg_email + " and Name = " + req.body.reg_first + " " + req.body.reg_last);
+        res.send("New user added into the database with email = " + req.body.reg_email + " and Name = " + req.body.reg_first + " " + req.body.reg_last);
       });
   });
 });
