@@ -49,17 +49,17 @@
         </div>
 
 
-        <form class="container">
+        <form class="container" action="/admin_add/add" method="POST">
             <form class="container">
                 <div class="row justify-content-md-center">
                     <div class="col-lg-5">
                         <label for="fname">First Name</label>
-                        <input type="text" class="form-control" id="fname" required>
+                        <input type="text" class="form-control" id="fname" name="fname" required>
                     </div>
 
                     <div class="col-lg-5">
                         <label for="lname">Last Name</label>
-                        <input type="text" class="form-control" id="lname" required>
+                        <input type="text" class="form-control" id="lname" name="lname" required>
                     </div>
                 </div>
 
@@ -67,49 +67,49 @@
                 <div class="row justify-content-md-center">
                     <div class="col-lg-5">
                         <label for="sex">Gender</label>
-                        <select id="sex_sex" class="form-control" required>
-                            <option value="man">Male</option>
-                            <option value="woman">Female</option>
+                        <select id="sex" name="sex" class="form-control" required>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
                         </select>
                     </div>
 
                     <div class="col-lg-5">
                         <label for="email">Email</label>
-                        <input type="text" class="form-control" id="email">
+                        <input type="text" class="form-control" id="email" name="email" required>
                     </div>
                 </div>
 
                 <div class="row justify-content-md-center">
                     <div class="col-lg-5">
                         <label for="street">Street</label>
-                        <input type="text" class="form-control" id="street" required>
+                        <input type="text" class="form-control" id="street" name="street" required>
                     </div>
 
                     <div class="col-lg-5">
                         <label for="street-no">Street No</label>
-                        <input type="text" class="form-control" id="street-no">
+                        <input type="text" class="form-control" id="street_no" name="street_no" required>
                     </div>
                 </div>
 
                 <div class="row justify-content-md-center">
                     <div class="col-lg-5">
                         <label for="zip-code">City</label>
-                        <input type="text" class="form-control" id="zip-code" required>
+                        <input type="text" class="form-control" id="city" name="city" required>
                     </div>
                     <div class="col-lg-5">
                         <label for="region">Region</label>
-                        <input type="text" class="form-control" id="region" required>
+                        <input type="text" class="form-control" id="region" name="region" required>
                     </div>
                 </div>
 
                 <div class="row justify-content-md-center">
                     <div class="col-lg-5">
                         <label for="zip-code">Zip Code</label>
-                        <input type="text" class="form-control" id="zip-code" required>
+                        <input type="text" class="form-control" id="zip_code" name="zip_code" required>
                     </div>
                     <div class="col-lg-5">
                         <label for="country">Country</label>
-                        <input type="text" class="form-control" id="country" required>
+                        <input type="text" class="form-control" id="country" name="country" required>
                     </div>
                 </div>
 
