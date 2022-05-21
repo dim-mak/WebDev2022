@@ -11,7 +11,7 @@ const db = new sqlite3.Database("./../airsky.db", (err) => {
         console.log("Error Occurred - " + err.message);
     }
     else {
-        console.log("DataBase Connected");
+        console.log("DataBase Connected admin_add");
     }
 });
 
@@ -20,7 +20,7 @@ router.get('/', function (req, res, next) {
     res.sendFile(path.join(__dirname, '../../../Frontend/admin_add.html'));
 });
 
-router.post('/admin_add/add', function (req, res) {
+router.post('/add', function (req, res) {
     db.serialize(() => {
         db.run('INSERT INTO USER(fname,lname,email,gender,street,street_no,city,region,zip_code,country) VALUES(?,?,?,?,?,?,?,?,?,?)',
             [req.body.fname, req.body.lname, req.body.email, req.body.sex, req.body.street, req.body.street_no,
