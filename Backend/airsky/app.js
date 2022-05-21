@@ -10,6 +10,7 @@ var registerRouter = require('./routes/register');
 var adminAddRouter = require('./routes/admin_add');
 var adminDeleteRouter = require('./routes/admin_delete');
 var adminSearchRouter = require('./routes/admin_search');
+var adminUpdateRouter = require('./routes/admin_update');
 
 var app = express();
 
@@ -29,6 +30,7 @@ app.use('/register', registerRouter);
 app.use('/admin_add', adminAddRouter);
 app.use('/admin_delete', adminDeleteRouter);
 app.use('/admin_search', adminSearchRouter);
+app.use('/admin_update', adminUpdateRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
