@@ -47,11 +47,12 @@
         </div>
 
 
-        <form class="container">
+        <form class="container" action="/admin_search/view" method="POST">
             <div class="row justify-content-md-center">
                 <div class="col-md-5">
                     <label for="user-email">Enter user email</label>
-                    <input type="text" class="form-control" placeholder="user@example.com" id="user-email" />
+                    <input type="text" class="form-control" placeholder="user@example.com" id="user-email"
+                        name="user_email" required />
                 </div>
             </div>
 
@@ -59,7 +60,8 @@
                 <div class="col text-center">
                     <button class="btn btn-primary" type="submit" id="admin-search-btn">
                         <!-- TODO: open admin results -->
-                        <a href="admin_results.html">Search</a>
+                        <!-- <a href="admin_results.html">Search</a> -->
+                        <a>Search</a>
                         <svg xmlns=" http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="16"
                             height="16" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
                             stroke-linecap="round" stroke-linejoin="round">
@@ -69,13 +71,17 @@
                         </svg>
                     </button>
 
-                    <button class="btn btn-primary" type="submit" id="view-all-btn">
-                        <!-- TODO: open admin results -->
-                        <a href="admin_results.html">View All</a>
-                    </button>
+                    <form class="container">
+                        <button class="btn btn-primary" type="submit" id="view-all-btn">
+                            <!-- TODO: open admin results -->
+                            <a href="admin_results.html">View All</a>
+                        </button>
+                    </form>
                 </div>
             </div>
         </form>
+
+
 
         <div id="alerts">
             <div class="alert alert-danger">

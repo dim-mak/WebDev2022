@@ -2,9 +2,6 @@ var express = require('express');
 var router = express.Router();
 const sqlite3 = require('sqlite3').verbose();
 const path = require("path");
-// const bodyParser = require('body-parser');
-// const helmet = require('helmet');
-// const rateLimit = require("express-rate-limit");
 
 const db = new sqlite3.Database("./../airsky.db", (err) => {
     if (err) {
@@ -26,6 +23,7 @@ router.post('/add', function (req, res) {
             [req.body.fname, req.body.lname, req.body.email, req.body.sex, req.body.street, req.body.street_no,
             req.body.city, req.body.region, req.body.zip_code, req.body.country], function (err) {
                 if (err) {
+                    res.send("Error encountered while adding");
                     return console.log(err.message);
                 }
                 console.log("New user added by admin");
