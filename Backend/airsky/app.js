@@ -31,6 +31,7 @@ app.use('/login', loginRouter);
 app.use('/admin_add', adminAddRouter);
 app.use('/admin_delete', adminDeleteRouter);
 app.use('/admin_search', adminSearchRouter);
+app.use('/admin_update', adminUpdateRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
