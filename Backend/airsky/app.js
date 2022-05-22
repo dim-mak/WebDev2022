@@ -7,6 +7,7 @@ const logger = require('morgan');
 
 const indexRouter = require('./routes/index');
 const registerRouter = require('./routes/register');
+const loginRouter = require('./routes/login');
 const adminAddRouter = require('./routes/admin_add');
 const adminDeleteRouter = require('./routes/admin_delete');
 const adminSearchRouter = require('./routes/admin_search');
@@ -26,6 +27,7 @@ app.use(express.static(path.join(__dirname, '../../Frontend')));
 
 app.use('/', indexRouter);
 app.use('/register', registerRouter);
+app.use('/login', loginRouter);
 app.use('/admin_add', adminAddRouter);
 app.use('/admin_delete', adminDeleteRouter);
 app.use('/admin_search', adminSearchRouter);
