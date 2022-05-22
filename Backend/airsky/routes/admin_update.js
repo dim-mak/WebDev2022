@@ -21,13 +21,13 @@ router.get('/', function (req, res, next) {
 // fix update
 router.post('/update', function (req, res) {
     db.serialize(() => {
-        db.run('UPDATE FROM USER WHERE email = ?', req.body.user_email, function (err) {
+        db.run('SELECT * FROM USER WHERE email = ?', req.body.user_email, function (err, results) {
             if (err) {
                 res.send("Error encountered while deleting");
                 return console.error(err.message);
             }
-            console.log("User deleted from database");
-            res.send("User with email = " + req.body.user_email + " deleted from database");
+            console.log("Select query sent");
+            res.send(json(results));
         });
     });
 });

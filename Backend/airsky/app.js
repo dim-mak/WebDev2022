@@ -11,6 +11,7 @@ const loginRouter = require('./routes/login');
 const adminAddRouter = require('./routes/admin_add');
 const adminDeleteRouter = require('./routes/admin_delete');
 const adminSearchRouter = require('./routes/admin_search');
+const adminUpdateRouter = require('./routes/admin_update');
 
 const app = express();
 
