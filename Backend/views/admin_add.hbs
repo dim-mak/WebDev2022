@@ -6,9 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- CSS -->
-    <link rel="stylesheet" href="assets/css/header_style.css" />
+    {{!--
+    <link rel="stylesheet" href="assets/css/header_style.css" /> --}}
     <link rel="stylesheet" href="../css/admin_style.css">
-    <link rel="stylesheet" href="assets/css/footer_style.css" />
+    {{!--
+    <link rel="stylesheet" href="assets/css/footer_style.css" /> --}}
 
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -123,17 +125,15 @@
                 </div>
             </form>
 
-            {{#if userAdded}}
+            {{#if alertRender}}
             <div id="alerts">
-                {{#if alertRender}}
+                {{#if userAdded}}
                 <div class="alert alert-success">
-                    <!-- TODO: trigger when added -->
                     <strong>User added successfully.</strong>
                 </div>
                 {{else}}
                 <div class="alert alert-danger">
-                    <!-- TODO: trigger when not found  -->
-                    <strong>Error</strong><br>Try again entering valid data.
+                    <strong>Error</strong><br>User with this email already exists.
                 </div>
                 {{/if}}
             </div>

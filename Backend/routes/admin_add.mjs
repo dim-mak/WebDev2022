@@ -10,29 +10,32 @@ app.set('view engine', 'hbs');
 
 import { db } from '../db.mjs'
 
-
-let userAdded = false;
-
 router.route('/').get(function (req, res) {
-    res.render('admin_add', { userAdded: userAdded });
+    res.render('admin_add', { alertRender: false });
 });
 
 router.route('/add').get(function (req, res) {
-    let alertRender = true;
-    userAdded = true;
-    db.serialize(() => {
-        db.run('INSERT INTO USER(fname,lname,email,gender,street,street_no,city,region,zip_code,country) VALUES(?,?,?,?,?,?,?,?,?,?)',
-            [req.query.fname, req.query.lname, req.query.email, req.query.sex, req.query.street, req.query.street_no,
-            req.query.city, req.query.region, req.query.zip_code, req.query.country], function (err) {
-                if (err) {
-                    alertRender = false;
-                    return console.log(err.message);
-                }
-                console.log("New user added by admin");
-            });
-    });
 
-    res.render('admin_add', { alertRender: alertRender, userAdded: userAdded });
+    db.serialize(() => {
+        db.all("SELECT email FROM USER WHERE email = ?", req.query.email, function (err, rows) {
+            console.log(rows);
+
+            if (rows && rows.length > 0) {
+                res.render('admin_add', { alertRender: true, userAdded: false });
+                console.log("User with this email already exists");
+            } else {
+                db.run('INSERT INTO USER(fname,lname,email,gender,street,street_no,city,region,zip_code,country) VALUES(?,?,?,?,?,?,?,?,?,?)',
+                    [req.query.fname, req.query.lname, req.query.email, req.query.sex, req.query.street, req.query.street_no,
+                    req.query.city, req.query.region, req.query.zip_code, req.query.country], function (err) {
+                        if (err) {
+                            return console.log(err.message);
+                        }
+                        console.log("User added by admin");
+                    });
+                res.render('admin_add', { alertRender: true, userAdded: true });
+            }
+        });
+    });
 
 });
 
