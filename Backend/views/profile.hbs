@@ -7,9 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 	<!-- CSS -->
-	<link rel="stylesheet" href="assets/css/header_style.css" />
-	<link rel="stylesheet" href="assets/css/profile_style.css" />
-	<link rel="stylesheet" href="assets/css/footer_style.css" />
+	<link rel="stylesheet" href="../css/profile_style.css" />
 
 	<!-- Bootstrap -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -24,16 +22,9 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
 
-	<!-- Title -->
-	<title>AirSky | Profile</title>
-
-	<!-- Favicon -->
-	<link rel="icon" type="image/x-icon" href="assets/img/favicon.png">
 </head>
 
 <body>
-
-	<script src="assets/js/header_connected.js"></script>
 
 	<section>
 		<div id="prof-title">
@@ -47,31 +38,33 @@
 			</h1>
 		</div>
 
-		<form class="container">
+		<form class="container" action="/profile/update" method="GET">
 			<h2>Personal Information</h2>
 			<div class="row">
 				<div class="col-md">
 					<label for="prof_first">First Name</label>
-					<input type="text" class="form-control" id="prof_first" required disabled />
+					<input type="text" class="form-control" id="prof_first" name="fname" value="{{data.fname}}" required
+						disabled />
 				</div>
 
 				<div class="col-md">
 					<label for="prof_last">Last Name</label>
-					<input type="text" class="form-control" id="prof_last" required disabled />
+					<input type="text" class="form-control" id="prof_last" name="lname" value="{{data.lname}}" required
+						disabled />
 				</div>
 			</div>
 
 			<div class="row">
 				<div class="col-md">
 					<label for="prof_email">Email</label>
-					<input type="email" class="form-control" id="prof_email" required disabled />
+					<input type="email" class="form-control" id="prof_email" value="{{data.email}}" required disabled />
 				</div>
 
 				<div class="col-md">
 					<label for="prof_sex">Gender</label>
-					<select id="prof_sex" class="form-control" required disabled>
-						<option value="man">Male</option>
-						<option value="woman">Female</option>
+					<select id="prof_sex" name="sex" selected="{{data.gender}}" class="form-control" required disabled>
+						<option value="Male">Male</option>
+						<option value="Female">Female</option>
 					</select>
 				</div>
 			</div>
@@ -80,24 +73,28 @@
 			<div class="row">
 				<div class="col-md">
 					<label for="prof_str">Street</label>
-					<input type="text" class="form-control" id="prof_str" required disabled />
+					<input type="text" class="form-control" id="prof_str" name="street" value="{{data.street}}" required
+						disabled />
 				</div>
 
 				<div class="col-md">
 					<label for="prof_num">Number</label>
-					<input type="text" class="form-control" id="prof_num" required disabled />
+					<input type="text" class="form-control" id="prof_num" name="street_no" value="{{data.street_no}}"
+						required disabled />
 				</div>
 			</div>
 
 			<div class="row">
 				<div class="col-md">
 					<label for="prof_city">City</label>
-					<input type="text" class="form-control" id="prof_city" required disabled />
+					<input type="text" class="form-control" id="prof_city" name="city" value="{{data.city}}" required
+						disabled />
 				</div>
 
 				<div class="col-md">
 					<label for="prof_state">Region</label>
-					<input type="text" class="form-control" id="prof_state" disabled />
+					<input type="text" class="form-control" id="prof_state" name="region" value="{{data.region}}"
+						disabled />
 				</div>
 
 			</div>
@@ -105,21 +102,22 @@
 			<div class="row">
 				<div class="col-md">
 					<label for="prof_taxcode">Zip Code</label>
-					<input type="text" class="form-control" id="prof_taxcode" required disabled />
+					<input type="text" class="form-control" id="prof_taxcode" name="zip_code" value="{{data.zip_code}}"
+						required disabled />
 				</div>
 
 				<div class="col-md">
 					<label for="prof_country">Country</label>
-					<input type="text" class="form-control" id="prof_country" required disabled />
+					<input type="text" class="form-control" id="prof_country" name="country" value="{{data.country}}"
+						required disabled />
 				</div>
 			</div>
 
 			<div class="row">
 				<div class="col-md text-center">
-					<button class="btn btn-danger" type="submit" id="prof_btn_edit"
+					<button class="btn btn-danger" type="button" id="prof_btn_edit"
 						onclick="editProfile()">Edit</button>
-					<button class="btn btn-danger" type="submit" id="prof_btn_save"
-						onclick="saveProfile()">Save</button>
+					<button class="btn btn-danger" type="submit" id="prof_btn_save">Save</button>
 				</div>
 
 				<div class="col-md text-center">
@@ -132,12 +130,11 @@
 
 		</form>
 
-	</section>
 
-	<script src="assets/js/footer.js"></script>
+	</section>
 
 </body>
 
-<script src="assets/js/profile_scripts.js"></script>
+<script src="../js/profile_scripts.js"></script>
 
 </html>

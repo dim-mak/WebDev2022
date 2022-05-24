@@ -34,7 +34,6 @@ function saveProfile() {
 function editProfile() {
     fname.disabled = false;
     lname.disabled = false;
-    email.disabled = false;
     sex.disabled = false;
     str.disabled = false
     num.disabled = false
