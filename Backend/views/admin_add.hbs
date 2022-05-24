@@ -50,7 +50,7 @@
         </div>
 
 
-        <form class="container" action="/admin_add" method="GET">
+        <form class="container" action="/admin_add/add" method="GET">
             <form class="container">
                 <div class="row justify-content-md-center">
                     <div class="col-lg-5">
@@ -123,17 +123,21 @@
                 </div>
             </form>
 
+            {{#if userAdded}}
             <div id="alerts">
+                {{#if alertRender}}
                 <div class="alert alert-success">
                     <!-- TODO: trigger when added -->
-                    <strong>User successfully added.</strong>
+                    <strong>User added successfully.</strong>
                 </div>
-
+                {{else}}
                 <div class="alert alert-danger">
                     <!-- TODO: trigger when not found  -->
                     <strong>Error</strong><br>Try again entering valid data.
                 </div>
+                {{/if}}
             </div>
+            {{/if}}
 
     </section>
 
