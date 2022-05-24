@@ -1,9 +1,6 @@
 import express from 'express'
 import { engine } from 'express-handlebars';
 // import { createError } from 'http-errors'
-
-import sqlite3 from 'sqlite3'
-
 const app = express()
 const router = express.Router();
 
@@ -15,15 +12,7 @@ app.engine('hbs', engine({ extname: 'hbs' }));
 
 app.set('view engine', 'hbs');
 
-const db = new sqlite3.Database("./airsky.db", (err) => {
-    // if (err) {
-    //     console.log("Error Occurred - " + err.message);
-    // }
-    // else {
-    //     console.log("DataBase Connected admin_add");
-    // }
-    console.log("DataBase Connected admin_add");
-});
+import { db } from './db.mjs'
 
 // let tasks = [
 //     { "id": 1, "task": "Να βρω σφάλματα", "status": 0, "created_at": "2022-05-07 09:08:10" },
@@ -164,18 +153,18 @@ router.route('/admin_add').get(function (req, res) {
     res.render('admin_add');
     console.log(req.query.fname);
 
-    // db.serialize(() => {
-    //     db.run('INSERT INTO USER(fname,lname,email,gender,street,street_no,city,region,zip_code,country) VALUES(?,?,?,?,?,?,?,?,?,?)',
-    //         [req.body.fname, req.body.lname, req.body.email, req.body.sex, req.body.street, req.body.street_no,
-    //         req.body.city, req.body.region, req.body.zip_code, req.body.country], function (err) {
-    //             // if (err) {
-    //             //     res.send("Error encountered while adding");
-    //             //     return console.log(err.message);
-    //             // }
-    //             console.log("New user added by admin");
-    //             res.send("New user added by admin to database with email = " + req.body.email + " and name = " + req.body.fname + " " + req.body.lname);
-    //         });
-    // });
+    db.serialize(() => {
+        db.run('INSERT INTO USER(fname,lname,email,gender,street,street_no,city,region,zip_code,country) VALUES(?,?,?,?,?,?,?,?,?,?)',
+            [req.body.fname, req.body.lname, req.body.email, req.body.sex, req.body.street, req.body.street_no,
+            req.body.city, req.body.region, req.body.zip_code, req.body.country], function (err) {
+                if (err) {
+                    res.send("Error encountered while adding");
+                    return console.log(err.message);
+                }
+                console.log("New user added by admin");
+                res.send("New user added by admin to database with email = " + req.body.email + " and name = " + req.body.fname + " " + req.body.lname);
+            });
+    });
 
 
 });
