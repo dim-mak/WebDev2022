@@ -6,7 +6,7 @@ const router = express.Router();
 
 // import { router as adminAddRoute } from './routes/admin_add';
 
-app.use(express.static('public'))
+app.use(express.static('public'));
 
 app.engine('hbs', engine({ extname: 'hbs' }));
 
