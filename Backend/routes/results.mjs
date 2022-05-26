@@ -12,6 +12,8 @@ app.set('view engine', 'hbs');
 import { db } from '../db.mjs'
 
 
+
+
 router.route('/').get(function (req, res) {
 
     let oneWay;
@@ -36,11 +38,11 @@ router.route('/').get(function (req, res) {
 
 
     db.all("SELECT * FROM FLIGHT WHERE depart_date = ? AND depart_airport = ? AND dest_airport = ?", [data.trip_start, data.search_from, data.search_to], function (err, rows) {
-        console.log(rows);
+        // console.log(rows);
 
         for (let i of rows) {
 
-            flights.push({ "departAirport": departAirport, "arrivalAirport": arrivalAirport, "departDate": i.depart_date, "arrivalDate": i.arrival_date, "departTime": i.depart_time, "arrivalTime": i.arrival_time, "airline": i.airline });
+            flights.push({ "flightId": i.flight_id, "departAirport": departAirport, "arrivalAirport": arrivalAirport, "departDate": i.depart_date, "arrivalDate": i.arrival_date, "departTime": i.depart_time, "arrivalTime": i.arrival_time, "airline": i.airline });
         }
 
     });
@@ -52,11 +54,11 @@ router.route('/').get(function (req, res) {
         console.log("There is a return flight");
 
         db.all("SELECT * FROM FLIGHT WHERE depart_date = ? AND depart_airport = ? AND dest_airport = ?", [data.trip_end, data.search_to, data.search_from], function (err, rows) {
-            console.log(rows);
+            // console.log(rows);
 
             for (let i of rows) {
 
-                flightsBack.push({ "departAirportBack": arrivalAirport, "arrivalAirportBack": departAirport, "departDateBack": i.depart_date, "arrivalDateBack": i.arrival_date, "departTimeBack": i.depart_time, "arrivalTimeBack": i.arrival_time, "airlineBack": i.airline });
+                flightsBack.push({ "flightIdBack": i.flight_id, "departAirportBack": arrivalAirport, "arrivalAirportBack": departAirport, "departDateBack": i.depart_date, "arrivalDateBack": i.arrival_date, "departTimeBack": i.depart_time, "arrivalTimeBack": i.arrival_time, "airlineBack": i.airline });
             }
 
         });
@@ -70,5 +72,39 @@ router.route('/').get(function (req, res) {
 });
 
 
+let flightData;
+let flightDataBack;
+
+router.route('/add').get(function (req, res) {
+
+    let selectedFlight = Object.keys(req.query)[0];
+    // console.log(selectedFlight);
+
+    exportFligtSelection(selectedFlight);
+})
+
+
+router.route('/add_back').get(function (req, res) {
+
+    let selectedFlightBack = Object.keys(req.query)[0];
+    // console.log(selectedFlightBack);
+
+    exportFligtSelectionBack(selectedFlightBack);
+})
+
+
+function exportFligtSelection(data) {
+    flightData = data;
+}
+
+function exportFligtSelectionBack(data) {
+    flightDataBack = data;
+}
+
+console.log(flightData);
+console.log(flightDataBack);
+
 
 export { router };
+export { flightData };
+export { flightDataBack };

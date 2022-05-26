@@ -19,16 +19,15 @@ router.route('/view').get(function (req, res) {
     let searchData = req.query;
     // console.log(searchData);
 
-    sendData(searchData);
+    exportData(searchData);
 
 });
 
 let data;
-function sendData(searchData) {
+function exportData(searchData) {
     // console.log(searchData);
     data = searchData;
-    console.log(data);
-    return searchData;
+    // console.log(data);
 }
 
 

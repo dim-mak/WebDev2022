@@ -86,3 +86,29 @@ input[type="reset"] {
     padding: 0;
     margin: 0;
 }
+
+#next_btn {
+    margin: 2% !important;
+    background-color: #457b9d !important;
+    border-color: #457b9d !important;
+    color: #f1faee !important;
+    font-weight: bold;
+    width: 80px;
+    margin: auto;
+}
+
+#next_btn:hover {
+    background-color: #1d3557 !important;
+    border-color: #1d3557 !important;
+}
+
+#next {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#next_btn a {
+    text-decoration: none;
+    color: #f1faee !important;
+}

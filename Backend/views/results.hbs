@@ -56,9 +56,9 @@
                 </svg>
                 {{arrivalCity}}
             </h2>
-            {{!-- <a href="seats.html"> --}}
-                {{#each flights}}
-                <button>
+            {{#each flights}}
+            <form action="/results/add" method="GET">
+                <button type="submit" name="{{flightId}}">
                     <div class="row">
                         <div class="col">
                             <div class="card">
@@ -158,7 +158,8 @@
                         </div>
                     </div>
                 </button>
-                {{/each}}
+            </form>
+            {{/each}}
 
         </div>
 
@@ -180,8 +181,8 @@
                 {{departCity}}
             </h2>
             {{#each flightsBack}}
-            {{!-- <a href="seats.html"> --}}
-                <button>
+            <form action="/results/add_back" method="GET">
+                <button type="submit" name="{{flightIdBack}}">
                     <div class="row">
                         <div class="col">
                             <div class="card">
@@ -281,11 +282,17 @@
                         </div>
                     </div>
                 </button>
-                {{/each}}
+            </form>
+            {{/each}}
 
         </div>
 
         {{/if}}
+
+
+        <div id="next">
+            <button type="button" class="btn btn-primary" id="next_btn"><a href="/seats">Next</a></button>
+        </div>
 
     </section>
 </body>
