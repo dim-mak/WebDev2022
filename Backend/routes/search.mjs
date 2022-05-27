@@ -1,6 +1,8 @@
 import express from 'express'
 import { engine } from 'express-handlebars';
 
+// import { router as resultsRouter } from './routes/results.mjs';
+
 const app = express()
 const router = express.Router();
 
@@ -59,6 +61,8 @@ router.route('/view').get(function (req, res) {
 
     exportData(searchData);
 
+    res.redirect('/results');
+
 });
 
 let data;
@@ -66,6 +70,7 @@ function exportData(searchData) {
     // console.log(searchData);
     data = searchData;
     // console.log(data);
+
 }
 
 

@@ -12,8 +12,6 @@ app.set('view engine', 'hbs');
 import { db } from '../db.mjs'
 
 
-
-
 router.route('/').get(function (req, res) {
 
     let oneWay;

@@ -63,7 +63,7 @@
             </h2>
             {{#each flights}}
             <form action="/results/add" method="GET">
-                <button type="button" name="{{flightId}}">
+                <button type="button" name="{{flightId}}" class="res-btn">
                     <div class="row">
                         <div class="col">
                             <div class="card">
@@ -187,7 +187,7 @@
             </h2>
             {{#each flightsBack}}
             <form action="/results/add_back" method="GET">
-                <button type="button" name="{{flightIdBack}}">
+                <button type="button" name="{{flightIdBack}}" class="res-btn">
                     <div class="row">
                         <div class="col">
                             <div class="card">
@@ -303,5 +303,9 @@
 </body>
 
 <script src="../js/results_scripts.js"></script>
+
+{{!--
+<script src="/js/results_scripts.js"></script> --}}
+
 
 </html>

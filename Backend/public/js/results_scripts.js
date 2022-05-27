@@ -2,10 +2,8 @@
 //     event.target.classList.add('.effect');
 // });
 
-btn = document.querySelector('button');
+btn = document.querySelector('.res-btn');
 
 btn.addEventListener("click", function handleClick(event) {
-    // event.target.classList.add('.effect');
-    console.log("btn clicked");
+    event.target.classList.add('.effect');
 });
-
