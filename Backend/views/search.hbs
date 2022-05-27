@@ -36,27 +36,24 @@
             <div class="row justify-content-md-center">
                 <div class="col-lg-4" id="from">
                     <label for="search_from">Departure</label>
-                    <input type="search" class="form-control" list="cities" id="search_from" name="search_from"
+                    <input type="search" class="form-control" list="airports_depart" id="search_from" name="search_from"
                         placeholder="Type airport or city" required>
-                    <datalist id="cities">
-                        <option value="Athens Eleftherios Venizelos International Airport - Athens">
-                        <option value="Heraklion International Nikos Kazantzakis Airport - Heraklion">
-                        <option value="Kos Airport - Kos Island">
-                        <option value="Kastelorizo Airport - Kastelorizo Island">
-                        <option value="Ioannis Kapodistrias International Airport - Kerkyra Island">
+                    <datalist id="airports_depart">
+                        {{#each departAirports}}
+                        <option value="{{depart}}">
+                            {{/each}}
                     </datalist>
+
                 </div>
 
                 <div class="col-lg-4" id="to">
                     <label for="search_to">Destination</label>
-                    <input type="search" class="form-control" list="cities" id="search_to" name="search_to"
-                        placeholder="Type airport or city" required>
-                    <datalist id="cities">
-                        <option value="Athens Eleftherios Venizelos International Airport - Athens">
-                        <option value="Heraklion International Nikos Kazantzakis Airport - Heraklion">
-                        <option value="Kos Airport - Kos Island">
-                        <option value="Kastelorizo Airport - Kastelorizo Island">
-                        <option value="Ioannis Kapodistrias International Airport - Kerkyra Island">
+                    <input type="search" class="form-control" list="airports_destination" id="search_to"
+                        name="search_to" placeholder="Type airport or city" required>
+                    <datalist id="airports_destination">
+                        {{#each destinationAirports}}
+                        <option value="{{destination}}">
+                            {{/each}}
                     </datalist>
                 </div>
             </div>

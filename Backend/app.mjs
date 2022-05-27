@@ -10,6 +10,12 @@ import { router as profileRouter } from './routes/profile.mjs';
 import { router as searchRouter } from './routes/search.mjs';
 import { router as resultsRouter } from './routes/results.mjs';
 import { router as seatsRouter } from './routes/seats.mjs';
+import { router as termsRouter } from './routes/terms_of_use.mjs';
+import { router as policyRouter } from './routes/private_data_policy.mjs';
+import { router as paymentRouter } from './routes/payment_methods.mjs';
+import { router as aboutUsRouter } from './routes/about_us.mjs';
+import { router as checkoutRouter } from './routes/checkout.mjs';
+import { router as finalRouter } from './routes/final.mjs';
 
 app.use(express.static('public'));
 
@@ -17,7 +23,7 @@ app.engine('hbs', engine({ extname: 'hbs' }));
 
 app.set('view engine', 'hbs');
 
-app.use(router); //load the router 'routes' on '/'
+app.use(router);
 
 app.use('/admin_add', adminAddRouter);
 app.use('/admin_delete', adminDeleteRouter);
@@ -26,6 +32,12 @@ app.use('/profile', profileRouter);
 app.use('/search', searchRouter);
 app.use('/results', resultsRouter);
 app.use('/seats', seatsRouter);
+app.use('/terms_of_use', termsRouter);
+app.use('/private_data_policy', policyRouter);
+app.use('/payment_methods', paymentRouter);
+app.use('/about_us', aboutUsRouter);
+app.use('/checkout', checkoutRouter);
+app.use('/final', finalRouter);
 
 let port = process.env.PORT || '3000';
 

@@ -2,11 +2,13 @@ body {
     font-family: 'Manrope', 'Roboto', sans-serif;
 }
 
-h1, h2, h3 {
+section h1,
+section h2,
+section h3 {
     color: #1d3557;
 }
 
-svg {
+section svg {
     width: 150px;
     height: auto;
     margin: 2%

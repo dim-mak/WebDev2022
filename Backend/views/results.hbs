@@ -21,6 +21,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+
+
+    <style>
+
+    </style>
 </head>
 
 <body>
@@ -58,7 +63,7 @@
             </h2>
             {{#each flights}}
             <form action="/results/add" method="GET">
-                <button type="submit" name="{{flightId}}">
+                <button type="button" name="{{flightId}}">
                     <div class="row">
                         <div class="col">
                             <div class="card">
@@ -182,7 +187,7 @@
             </h2>
             {{#each flightsBack}}
             <form action="/results/add_back" method="GET">
-                <button type="submit" name="{{flightIdBack}}">
+                <button type="button" name="{{flightIdBack}}">
                     <div class="row">
                         <div class="col">
                             <div class="card">
@@ -296,5 +301,7 @@
 
     </section>
 </body>
+
+<script src="../js/results_scripts.js"></script>
 
 </html>
