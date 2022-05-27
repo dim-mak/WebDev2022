@@ -1,7 +1,44 @@
 import request from 'request';
 import fs from 'fs'
-import { parse } from 'csv-parse'
 import readline from 'readline';
+
+const seats = ['1A', '1B', '1C', '1D', '1E', '1F',
+    '2A', '2B', '2C', '2D', '2E', '2F',
+    '3A', '3B', '3C', '3D', '3E', '3F',
+    '4A', '4B', '4C', '4D', '4E', '4F',
+    '5A', '5B', '5C', '5D', '5E', '5F',
+    '6A', '6B', '6C', '6D', '6E', '6F',
+    '7A', '7B', '7C', '7D', '7E', '7F',
+    '8A', '8B', '8C', '8D', '8E', '8F',
+    '9A', '9B', '9C', '9D', '9E', '9F',
+];
+
+function shuffleArr(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        let rand = Math.floor(Math.random() * (i + 1));
+        [array[i], array[rand]] = [array[rand], array[i]]
+    }
+    return array;
+}
+
+function getSeats() {
+
+    const seatsReturn = new Array()
+
+    let n = Math.floor(Math.random() * 5) + 1;
+
+    let seatsTemp = shuffleArr(seats)
+
+    for (let i = 0; i < n; i++) {
+        seatsReturn.push(seatsTemp.pop())
+    }
+
+    return seatsReturn
+}
+
+function getPrice(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 
 // function dates --> strings
 function translateDate(date) {
@@ -20,106 +57,95 @@ function translateDate(date) {
     return transDate
 }
 
-function CSVstring_to_Array(data, delimiter = ',') {
+function apiCsv() {
 
-    /* This variable will collect all the titles
-       from the data variable
-       ["Name", "Roll Number"] */
+    const results = new Array();
 
-    const titles = data.slice(0, data
-        .indexOf('\n')).split(delimiter);
+    const stream = fs.createReadStream("./results_airports.csv");
+    const rl = readline.createInterface({ input: stream });
+    let csvRows = [];
 
-    /* This variable will store the values
-       from the data
-       [ 'Rohan,01', 'Aryan,02' ] */
-    const titleValues = data.slice(data
-        .indexOf('\n') + 1).split('\n');
-
-    /* Map function will iterate over all
-       values of title values array and
-       append each object at the end of
-       the array */
-    const ansArray = titleValues.map(function (v) {
-
-        /* Values variable will store individual
-           title values        
-           [ 'Rohan', '01' ] */
-        const values = v.split(delimiter);
-
-        /* storeKeyValue variable will store
-           object containing each title
-           with their respective values i.e
-           { Name: 'Rohan', 'Roll Number': '01' } */
-        const storeKeyValue = titles.reduce(
-            function (obj, title, index) {
-                obj[title] = values[index];
-                return obj;
-            }, {});
-
-        return storeKeyValue;
+    rl.on("line", (row) => {
+        csvRows.push(row.split(","));
     });
 
-    return ansArray;
-};
+    rl.on("close", () => {
+        const startForLoop = new Date(2019, 0, 1, 12, 0, 0, 0)
+        const stopForloop = new Date(2019, 12, 1, 12, 0, 0, 0)
 
-let csvRows = []
+        for (let d = startForLoop; d <= stopForloop; d.setDate(d.getDate() + 1)) {
+            let startDate = Math.round((new Date(d)).getTime() / 1000)
+            d.setUTCHours(12, 0, 0)
+            let endDate = Math.round((new Date(d)).getTime() / 1000)
+            d.setUTCHours(10, 0, 0)
 
-// fs.createReadStream("./results_airports.csv")
-//     .pipe(parse({ delimiter: ",", from_line: 2 }))
-//     .on("data", function (csvRows, row) {
-//         // console.log(row)
-//     })
-//     .on("end", function () {
-//         csvRows = CSVstring_to_Array(data)
-//     })
-//     .on("error", function (error) {
-//         console.log(error.message);
-//     });
+            request('https://opensky-network.org/api/flights/all?begin=' + startDate.toString + '&end=' + endDate.toString, { json: true }, (err, res, body) => {
+                if (err) { return console.log(err); }
+
+                for (let i of body) {
+                    let resObj = {}
+                    if (i.firstSeen == null || i.lastSeen == null || i.estDepartureAirport == null || i.estArrivalAirport == null) {
+                        continue
+                    }
+                    else {
+
+                        let unixTimeDept = i.firstSeen
+                        let dateDept = new Date(unixTimeDept * 1000);
+                        let dateDeptFinal = translateDate(dateDept)
+
+                        let timeDeptFinal = dateDept.toLocaleTimeString("en-US", { hour12: false })
+
+                        let unixTimeArr = i.lastSeen
+                        let dateArr = new Date(unixTimeArr * 1000);
+                        let dateArrFinal = translateDate(dateArr)
+
+                        let timeArrFinal = dateArr.toLocaleTimeString("en-US", { hour12: false })
 
 
-const stream = fs.createReadStream("./results_airports.csv");
-const rl = readline.createInterface({ input: stream });
-let data = [];
+                        let departAirport;
+                        let arrAirport;
 
-rl.on("line", (row) => {
-    data.push(row.split(","));
-});
+                        for (let row of csvRows) {
+                            if (row[1] == i.estDepartureAirport) {
+                                departAirport = row[5]
+                            }
+                            else {
+                                continue
+                            }
+                            if (row[1] == i.estArrivalAirport) {
+                                arrAirport = row[5]
+                            }
+                            else {
+                                continue
+                            }
+                            resObj.departDate = dateDeptFinal
+                            resObj.departTime = timeDeptFinal
+                            resObj.arrDate = dateArrFinal
+                            resObj.arrTime = timeArrFinal
+                            resObj.departAirport = departAirport
+                            resObj.arrAirport = arrAirport
 
-rl.on("close", () => {
-    console.log(data);
-});
+                            resObj.goldPrice = getPrice(1000, 2000)
+                            resObj.bussPrice = getPrice(500, 800)
+                            resObj.ecoPrice = getPrice(100, 400)
 
-console.log(data)
+                            resObj.seats = getSeats()
+                        }
 
-// request('https://opensky-network.org/api/flights/all?begin=1517227200&end=1517230800', { json: true }, (err, res, body) => {
-//     if (err) { return console.log(err); }
-//     for (let i of body) {
-//         if (i.firstSeen == null || i.lastSeen == null || i.estDepartureAirport == null || i.estArrivalAirport == null) {
-//             continue
-//         }
-//         else {
-//             let unixTimeDept = i.firstSeen
-//             let dateDept = new Date(unixTimeDept * 1000);
-//             let dateDeptFinal = translateDate(dateDept)
-//             let timeDeptFinal = dateDept.toLocaleTimeString("en-US", { hour12: false })
+                        if (Object.keys(resObj).length > 0) {
 
-//             let unixTimeArr = i.lastSeen
-//             let dateArr = new Date(unixTimeArr * 1000);
-//             let dateArrFinal = translateDate(dateArr)
-//             let timeArrFinal = dateArr.toLocaleTimeString("en-US", { hour12: false })
 
-//             let airportDept = i.estDepartureAirport
-//             let airportArr = i.estArrivalAirport
 
-//             let airportDeptFinal = airportDept
-//             let airportArrFinal = airportArr
+                        }
+                    };
+                };
+            });
 
-//             console.log(dateDeptFinal);
-//             console.log(timeDeptFinal);
-//             console.log(dateArrFinal);
-//             console.log(timeArrFinal);
-//             console.log(airportDeptFinal)
-//             console.log(airportArrFinal)
-//         }
-//     };
-// });
+
+        }
+
+    });
+}
+
+
+apiCsv();
