@@ -1,10 +1,10 @@
 /* $env:DEBUG='myapp:*'; npm start */
 
-CREATE TABLE SEAT_TYPE (
-	seat_type_id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-	price DECIMAL NOT NULL,
-	type VARCHAR(255) NOT NULL
-);
+-- CREATE TABLE SEAT_TYPE (
+-- 	seat_type_id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+-- 	price DECIMAL NOT NULL,
+-- 	type VARCHAR(255) NOT NULL
+-- );
 
 CREATE TABLE USER (
 	user_id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
@@ -43,7 +43,11 @@ CREATE TABLE TICKET (
 CREATE TABLE SEAT (
 	seat_id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
 	occupied BOOLEAN NOT NULL,
-	code VARCHAR(255) NOT NULL
+	code VARCHAR(255) NOT NULL,
+	price DECIMAL NOT NULL,
+	seat_type VARCHAR(255) NOT NULL,
+	flight_id INTEGER NOT NULL,
+	FOREIGN KEY(flight_id) REFERENCES USER(flight_id)
 );
 
 CREATE TABLE FLIGHT (
@@ -57,20 +61,20 @@ CREATE TABLE FLIGHT (
 	airline VARCHAR(255) NOT NULL
 );
 
-CREATE TABLE Seat_Has_SeatType (
-	seat_id INTEGER NOT NULL,
-	seat_type_id INTEGER NOT NULL,
-	PRIMARY KEY (seat_id, seat_type_id), 
-	FOREIGN KEY(seat_id) REFERENCES SEAT(seat_id),
-	FOREIGN KEY(seat_type_id) REFERENCES SEAT_TYPE(seat_type_id)
-);
+-- CREATE TABLE Seat_Has_SeatType (
+-- 	seat_id INTEGER NOT NULL,
+-- 	seat_type_id INTEGER NOT NULL,
+-- 	PRIMARY KEY (seat_id, seat_type_id), 
+-- 	FOREIGN KEY(seat_id) REFERENCES SEAT(seat_id),
+-- 	FOREIGN KEY(seat_type_id) REFERENCES SEAT_TYPE(seat_type_id)
+-- );
 
 CREATE TABLE Ticket_Has_FlightSeat (
-	seat_id INTEGER NOT NULL,
+	-- seat_id INTEGER NOT NULL,
 	ticket_id INTEGER NOT NULL,
 	flight_id INTEGER NOT NULL,
-	PRIMARY KEY (seat_id, ticket_id, flight_id)
-	FOREIGN KEY(seat_id) REFERENCES SEAT(seat_id),
+	PRIMARY KEY (ticket_id, flight_id)
+	-- FOREIGN KEY(seat_id) REFERENCES SEAT(seat_id),
 	FOREIGN KEY(ticket_id) REFERENCES TICKET(ticket_id),
 	FOREIGN KEY(flight_id) REFERENCES FLIGHT(flight_id)
 );
