@@ -182,13 +182,13 @@ function addFlightData(resObj) {
             });
     });
 
-    // let flightId;
+    // let flightId; // FIXME:
     // db.get("SELECT MAX(flight_id) AS max FROM FLIGHT", function (err, rows) {
     //     // console.log(rows.max);
     //     flightId = rows.max;
 
     //     return flightId;
-    // });
+    // }); 
 
 }
 

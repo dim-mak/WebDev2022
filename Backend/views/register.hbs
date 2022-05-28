@@ -78,6 +78,9 @@
                     <input id="reg_pswd_conf" type="password" class="form-control" placeholder="Confirm Password"
                         id="reg_pswdconf" name="reg_pswdconf" required />
                 </div>
+
+                <small>Password must be from 8 to 16 characters and must contain at least one character and one
+                    number</small>
             </div>
 
             <h2>Address</h2>
@@ -164,6 +167,31 @@
                 <strong>Error.</strong><br>A user with this email already exists.
             </div>
             {{/if}}
+        </div>
+        {{/if}}
+
+
+        {{#if passwordsNotMatch}}
+        <div class="alert alert-danger">
+            <strong>Error.</strong><br>Passwords don't match.
+        </div>
+        {{/if}}
+
+        {{#if passwordLengthError}}
+        <div class="alert alert-danger">
+            <strong>Error.</strong><br>Password must be from 8 to 16 characters.
+        </div>
+        {{/if}}
+
+        {{#if passwordNumError}}
+        <div class="alert alert-danger">
+            <strong>Error.</strong><br>Password must contain at least one number.
+        </div>
+        {{/if}}
+
+        {{#if passwordLetterError}}
+        <div class="alert alert-danger">
+            <strong>Error.</strong><br>Password must contain at least one letter.
         </div>
         {{/if}}
 

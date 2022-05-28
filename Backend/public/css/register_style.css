@@ -108,3 +108,9 @@ section small {
 .text-success:hover {
 	text-decoration: underline;
 }
+
+
+
+section small {
+	margin: 2% 3%;
+}
