@@ -48,21 +48,21 @@
             </h1>
         </div>
 
+        <form action="/results/get" method="GET">
 
-        <div id="go">
-            <h2>{{departCity}}
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-narrow-right"
-                    width="35" height="35" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                    stroke-linecap="round" stroke-linejoin="round">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <line x1="5" y1="12" x2="19" y2="12" />
-                    <line x1="15" y1="16" x2="19" y2="12" />
-                    <line x1="15" y1="8" x2="19" y2="12" />
-                </svg>
-                {{arrivalCity}}
-            </h2>
-            {{#each flights}}
-            <form action="/results/add" method="GET">
+            <div id="go">
+                <h2>{{departCity}}
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-narrow-right"
+                        width="35" height="35" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <line x1="5" y1="12" x2="19" y2="12" />
+                        <line x1="15" y1="16" x2="19" y2="12" />
+                        <line x1="15" y1="8" x2="19" y2="12" />
+                    </svg>
+                    {{arrivalCity}}
+                </h2>
+                {{#each flights}}
                 <button type="button" name="{{flightId}}" class="res-btn">
                     <div class="row">
                         <div class="col">
@@ -119,13 +119,13 @@
                                             </div>
                                             <div class="row prices">
                                                 <div class="col gold">
-                                                    <p>Gold<br>1000.0 $</p>
+                                                    <p>Gold<br>{{goldPrice}} $</p>
                                                 </div>
                                                 <div class="col bussiness">
-                                                    <p>Bussiness<br>650.0 $</p>
+                                                    <p>Bussiness<br>{{bussPrice}} $</p>
                                                 </div>
                                                 <div class="col economy">
-                                                    <p>Economy<br>180.0 $</p>
+                                                    <p>Economy<br>{{ecoPrice}} $</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -163,30 +163,28 @@
                         </div>
                     </div>
                 </button>
-            </form>
-            {{/each}}
+                {{/each}}
 
-        </div>
+            </div>
 
 
-        {{#if oneWay}}
-        <div></div>
+            {{#if oneWay}}
+            <div></div>
 
-        {{else}}
-        <div id="return">
-            <h2>{{arrivalCity}}
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-narrow-right"
-                    width="35" height="35" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                    stroke-linecap="round" stroke-linejoin="round">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <line x1="5" y1="12" x2="19" y2="12" />
-                    <line x1="15" y1="16" x2="19" y2="12" />
-                    <line x1="15" y1="8" x2="19" y2="12" />
-                </svg>
-                {{departCity}}
-            </h2>
-            {{#each flightsBack}}
-            <form action="/results/add_back" method="GET">
+            {{else}}
+            <div id="return">
+                <h2>{{arrivalCity}}
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-narrow-right"
+                        width="35" height="35" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <line x1="5" y1="12" x2="19" y2="12" />
+                        <line x1="15" y1="16" x2="19" y2="12" />
+                        <line x1="15" y1="8" x2="19" y2="12" />
+                    </svg>
+                    {{departCity}}
+                </h2>
+                {{#each flightsBack}}
                 <button type="button" name="{{flightIdBack}}" class="res-btn">
                     <div class="row">
                         <div class="col">
@@ -243,13 +241,13 @@
                                             </div>
                                             <div class="row prices">
                                                 <div class="col gold">
-                                                    <p>Gold<br>1200.0 $</p>
+                                                    <p>Gold<br>{{goldPriceBack}} $</p>
                                                 </div>
                                                 <div class="col bussiness">
-                                                    <p>Bussiness<br>800.0 $</p>
+                                                    <p>Bussiness<br>{{bussPriceBack}} $</p>
                                                 </div>
                                                 <div class="col economy">
-                                                    <p>Economy<br>250.0 $</p>
+                                                    <p>Economy<br>{{ecoPriceBack}} $</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -287,17 +285,18 @@
                         </div>
                     </div>
                 </button>
-            </form>
-            {{/each}}
+                {{/each}}
 
-        </div>
+            </div>
 
-        {{/if}}
+            {{/if}}
 
 
-        <div id="next">
-            <button type="button" class="btn btn-primary" id="next_btn"><a href="/seats">Next</a></button>
-        </div>
+            <div id="next">
+                <button type="submit" class="btn btn-primary" id="next_btn">Next</button>
+            </div>
+
+        </form>
 
     </section>
 </body>

@@ -77,15 +77,14 @@ function csvAPI() {
     const stream = fs.createReadStream("./results_airports.csv");
     const rl = readline.createInterface({ input: stream });
     let csvRows = [];
-    let fullSeatsNo;
 
     rl.on("line", (row) => {
         csvRows.push(row.split(","));
     });
 
     rl.on("close", () => {
-        const startForLoop = new Date(2018, 3, 1, 12, 0, 0, 0)
-        const stopForloop = new Date(2018, 5, 2, 12, 0, 0, 0)
+        const startForLoop = new Date(2018, 0, 1, 12, 0, 0, 0)
+        const stopForloop = new Date(2018, 0, 2, 12, 0, 0, 0)
 
         for (let d = startForLoop; d <= stopForloop; d.setDate(d.getDate() + 1)) {
             let startDate = Math.round((new Date(d)).getTime() / 1000)
@@ -97,13 +96,12 @@ function csvAPI() {
                 if (err) { return console.log(err); }
 
                 for (let i of body) {
+
                     let resObj = {}
                     if (i.firstSeen == null || i.lastSeen == null || i.estDepartureAirport == null || i.estArrivalAirport == null) {
                         continue
                     }
                     else {
-
-                        // console.log("im in")
 
                         let unixTimeDept = i.firstSeen
                         let dateDept = new Date(unixTimeDept * 1000);
@@ -154,6 +152,7 @@ function csvAPI() {
 
                         if (Object.keys(resObj).length > 0) {
 
+                            // let id = addFlightData(resObj);
                             addFlightData(resObj);
                             // addSeatData(resObj);
 
@@ -179,9 +178,17 @@ function addFlightData(resObj) {
                 if (err) {
                     return console.log(err.message);
                 }
-                // console.log("Flight inserted with success");
+                console.log("Flight inserted with success");
             });
     });
+
+    // let flightId;
+    // db.get("SELECT MAX(flight_id) AS max FROM FLIGHT", function (err, rows) {
+    //     // console.log(rows.max);
+    //     flightId = rows.max;
+
+    //     return flightId;
+    // });
 
 }
 
@@ -204,11 +211,6 @@ function addSeatData(resObj) {
         }
 
         db.serialize(() => {
-            // let flightId;
-            // db.get("SELECT MAX(flight_id) AS max FROM FLIGHT", function (err, rows) {
-            //     // console.log(rows.max);
-            //     flightId = rows.max;
-            // });
 
             db.run('INSERT INTO SEAT(occupied, code, seat_type, price, flight_id) VALUES(1,?,?,?,?)', [i, seat_type, price, flightId], function (err) {
                 if (err) {

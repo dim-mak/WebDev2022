@@ -29,7 +29,7 @@ app.use('/admin_add', adminAddRouter);
 app.use('/admin_delete', adminDeleteRouter);
 app.use('/register', registerRouter);
 app.use('/profile', profileRouter);
-app.use('/search', searchRouter);
+app.use('/', searchRouter);
 app.use('/results', resultsRouter);
 app.use('/seats', seatsRouter);
 app.use('/terms_of_use', termsRouter);

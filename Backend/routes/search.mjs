@@ -1,7 +1,6 @@
 import express from 'express'
 import { engine } from 'express-handlebars';
 
-// import { router as resultsRouter } from './routes/results.mjs';
 
 const app = express()
 const router = express.Router();
