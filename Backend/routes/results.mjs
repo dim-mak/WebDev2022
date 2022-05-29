@@ -36,6 +36,9 @@ router.route('/').get(function (req, res) {
 
 
     db.all("SELECT * FROM FLIGHT WHERE depart_date = ? AND depart_airport = ? AND dest_airport = ? LIMIT 5", [data.trip_start, data.search_from, data.search_to], function (err, rows) {
+        if (err) {
+            return console.log(err.message);
+        }
         // console.log(rows);
         if (rows && rows.length) {
 
@@ -58,6 +61,9 @@ router.route('/').get(function (req, res) {
         // console.log("There is a return flight");
 
         db.all("SELECT * FROM FLIGHT WHERE depart_date = ? AND depart_airport = ? AND dest_airport = ? LIMIT 5", [data.trip_end, data.search_to, data.search_from], function (err, rows) {
+            if (err) {
+                return console.log(err.message);
+            }
             // console.log(rows);
 
             if (rows && rows.length > 0) {

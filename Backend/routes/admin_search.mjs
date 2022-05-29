@@ -19,8 +19,8 @@ router.route('/').get(function (req, res) {
 
 router.route('/view').get(function (req, res) {
 
-    db.all("SELECT email FROM USER WHERE email = ? ", req.query.user_email, function (err, rows) {
-        console.log(rows);
+    db.all("SELECT * FROM USER WHERE email = ? ", req.query.user_email, function (err, rows) {
+        // console.log(rows);
 
         if (rows && rows.length > 0) {
             let searchData = req.query;
@@ -32,9 +32,15 @@ router.route('/view').get(function (req, res) {
     })
 });
 
+
+router.route('/view_all').get(function (req, res) {
+    res.redirect('/admin_results/all');
+});
+
+
 let adminData;
 function exportData(searchData) {
-    data = searchData;
+    adminData = searchData;
 
 }
 

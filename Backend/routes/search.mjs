@@ -19,6 +19,9 @@ router.route('/').get(function (req, res) {
 
 
     db.all("SELECT depart_airport FROM FLIGHT", function (err, rows) {
+        if (err) {
+            return console.log(err.message);
+        }
         // console.log(rows);
         let temp = [];
 
@@ -35,6 +38,9 @@ router.route('/').get(function (req, res) {
 
 
     db.all("SELECT dest_airport FROM FLIGHT", function (err, rows) {
+        if (err) {
+            return console.log(err.message);
+        }
         let temp = [];
         // console.log(rows);
 
