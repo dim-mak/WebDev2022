@@ -92,11 +92,11 @@ const slideTime = 6000;
 
 const slideShow = document.querySelector('#slideshow');
 
-images[0] = 'img/slideshow1.jpg';
-images[1] = 'img/slideshow2.jpg';
-images[2] = 'img/slideshow3.jpg';
-images[3] = 'img/slideshow4.jpg';
-images[4] = 'img/slideshow5.jpg';
+images[0] = '/img/slideshow1.jpg';
+images[1] = '/img/slideshow2.jpg';
+images[2] = '/img/slideshow3.jpg';
+images[3] = '/img/slideshow4.jpg';
+images[4] = '/img/slideshow5.jpg';
 
 function changePicture(i) {
     slideShow.src = images[i];

@@ -29,11 +29,15 @@
     <title>AirSky</title>
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="img/favicon.png">
+    <link rel="icon" type="image/x-icon" href="/img/favicon.png">
 </head>
 
 <body>
+    {{#if session.loggedin}}
     {{> header}}
+    {{else}}
+    {{> header_connected}}
+    {{/if}}
     {{{body}}}
     {{> footer}}
 </body>

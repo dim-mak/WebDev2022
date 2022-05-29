@@ -1,5 +1,6 @@
 import express from 'express'
 import { engine } from 'express-handlebars';
+import session from 'express-session';
 const app = express()
 const router = express.Router();
 
@@ -16,6 +17,15 @@ import { router as paymentRouter } from './routes/payment_methods.mjs';
 import { router as aboutUsRouter } from './routes/about_us.mjs';
 import { router as checkoutRouter } from './routes/checkout.mjs';
 import { router as finalRouter } from './routes/final.mjs';
+import { router as forgotPswdRouter } from './routes/forgot_pswd.mjs';
+import { router as loginRouter } from './routes/login.mjs';
+
+
+app.use(session({
+    secret: 'secret',
+    resave: true,
+    saveUninitialized: true
+}));
 
 app.use(express.static('public'));
 
@@ -38,6 +48,8 @@ app.use('/payment_methods', paymentRouter);
 app.use('/about_us', aboutUsRouter);
 app.use('/checkout', checkoutRouter);
 app.use('/final', finalRouter);
+app.use('/forgot', forgotPswdRouter);
+app.use('/login', loginRouter);
 
 let port = process.env.PORT || '3000';
 
