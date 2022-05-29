@@ -102,7 +102,7 @@ input[type="submit"] {
 }
 
 .effect {
-    border: 20px solid red;
+    background-color: rgb(69,123,157, 0.3);
 }
 
 
