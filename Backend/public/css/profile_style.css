@@ -2,7 +2,8 @@ body {
     font-family: 'Manrope', 'Roboto', sans-serif;
 }
 
-header, footer {
+header,
+footer {
     min-height: 15vh;
 }
 
@@ -85,5 +86,25 @@ section label {
 @media (max-width: 1262px) {
     section {
         background-image: none !important;
+    }
+}
+
+.alert {
+    margin: 3% auto;
+    text-align: center;
+    width: 80%;
+    max-width: 1224px;
+}
+
+
+@media (max-width: 767px) {
+    .alert {
+        width: 65%;
+    }
+}
+
+@media (max-width: 425px) {
+    .alert {
+        width: 90%;
     }
 }

@@ -2,7 +2,8 @@ body {
     font-family: 'Manrope', 'Roboto', sans-serif;
 }
 
-header, footer {
+header,
+footer {
     min-height: 15vh;
 }
 
@@ -13,7 +14,7 @@ section {
 
 body {
     font-family: 'Manrope', 'Roboto', sans-serif;
-    background-image: url(../img/slideshow5.jpg);
+    background-image: url(/img/final.jpg);
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -44,4 +45,3 @@ section a {
     }
 
 }
-
