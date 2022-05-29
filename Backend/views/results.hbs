@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- CSS -->
-    <link rel="stylesheet" href="../css/results_style.css" />
+    <link rel="stylesheet" href="/css/results_style.css" />
 
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -71,7 +71,7 @@
                     {{arrivalCity}}
                 </h2>
                 {{#each flights}}
-                <button type="button" id={{flightId}} class="res-btn">
+                <button type="button" id={{flightId}} class="go-btn">
                     <div class="row">
                         <div class="col">
                             <div class="card">
@@ -182,7 +182,7 @@
                     {{departCity}}
                 </h2>
                 {{#each flightsBack}}
-                <button type="button" name="{{flightIdBack}}" class="res-btn">
+                <button type="button" name="{{flightIdBack}}" class="back-btn">
                     <div class="row">
                         <div class="col">
                             <div class="card">
