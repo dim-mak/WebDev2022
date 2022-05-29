@@ -13,7 +13,7 @@ section {
 
 section {
 	padding-top: 3%;
-	background-image: url(../img/register_bg.jpg);
+	background-image: url(/img/register_bg.jpg);
 	background-repeat: no-repeat;
 	background-size: cover;
 	padding-bottom: 5%;
