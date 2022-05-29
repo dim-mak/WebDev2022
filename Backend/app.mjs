@@ -22,6 +22,7 @@ import { router as checkoutRouter } from './routes/checkout.mjs';
 import { router as finalRouter } from './routes/final.mjs';
 import { router as forgotPswdRouter } from './routes/forgot_pswd.mjs';
 import { router as loginRouter } from './routes/login.mjs';
+import { router as logoutRouter } from './routes/logout.mjs';
 
 
 app.use(session({
@@ -56,6 +57,7 @@ app.use('/checkout', checkoutRouter);
 app.use('/final', finalRouter);
 app.use('/forgot', forgotPswdRouter);
 app.use('/login', loginRouter);
+app.use('/logout', logoutRouter);
 
 let port = process.env.PORT || '3000';
 
