@@ -48,6 +48,14 @@
             </h1>
         </div>
 
+        {{#if alertRender}}
+        <div>
+            <div class="alert alert-danger">
+                <strong>We 're sorry!</strong><br>No flights are available for your search criteria.
+            </div>
+        </div>
+        {{else}}
+
         <form action="/results/get" method="GET">
 
             <div id="go">
@@ -276,13 +284,12 @@
 
         </form>
 
+        {{/if}}
+
     </section>
 </body>
 
-<script src="../js/results_scripts.js"></script>
-
-{{!--
-<script src="/js/results_scripts.js"></script> --}}
+<script src="/js/results_scripts.js"></script>
 
 
 </html>
