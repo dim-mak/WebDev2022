@@ -21,14 +21,14 @@ router.route('/delete').get(function (req, res) {
             if (err) {
                 return console.log(err.message);
             }
-            console.log(rows);
+            // console.log(rows);
 
             if (rows && rows.length > 0) {
                 db.run('DELETE FROM USER WHERE email = ?', req.query.user_email, function (err) {
                     if (err) {
                         return console.log(err.message);
                     }
-                    console.log("User deleted by admin");
+                    // console.log("User deleted by admin");
                 });
                 res.render('admin_delete', { alertRender: true, userDeleted: true });
             } else {

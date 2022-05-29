@@ -21,11 +21,11 @@ router.route('/add').get(function (req, res) {
             if (err) {
                 return console.log(err.message);
             }
-            console.log(rows);
+            // console.log(rows);
 
             if (rows && rows.length > 0) {
                 res.render('admin_add', { alertRender: true, userAdded: false });
-                console.log("User with this email already exists");
+                // console.log("User with this email already exists");
             } else {
                 db.run('INSERT INTO USER(fname,lname,email,gender,street,street_no,city,region,zip_code,country) VALUES(?,?,?,?,?,?,?,?,?,?)',
                     [req.query.fname, req.query.lname, req.query.email, req.query.sex, req.query.street, req.query.street_no,
@@ -33,7 +33,7 @@ router.route('/add').get(function (req, res) {
                         if (err) {
                             return console.log(err.message);
                         }
-                        console.log("User added by admin");
+                        // console.log("User added by admin");
                     });
                 res.render('admin_add', { alertRender: true, userAdded: true });
             }
