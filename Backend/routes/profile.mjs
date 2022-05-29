@@ -12,6 +12,7 @@ import { db } from '../db.mjs'
 
 let data;
 
+
 router.route('/').get(function (req, res) {
     db.all("SELECT * FROM USER WHERE email = 'eva.gaga10@gmail.com'", function (err, rows) { // TODO: remove my email and add the one from the database
         if (err) {
