@@ -5,6 +5,8 @@ const app = express()
 const router = express.Router();
 
 import { router as adminAddRouter } from './routes/admin_add.mjs';
+import { router as adminSearchRouter } from './routes/admin_search.mjs';
+import { router as adminResultsRouter } from './routes/admin_results.mjs';
 import { router as adminDeleteRouter } from './routes/admin_delete.mjs';
 import { router as registerRouter } from './routes/register.mjs';
 import { router as profileRouter } from './routes/profile.mjs';
@@ -36,6 +38,8 @@ app.set('view engine', 'hbs');
 app.use(router);
 
 app.use('/admin_add', adminAddRouter);
+app.use('/admin_search', adminSearchRouter);
+app.use('/admin_results', adminResultsRouter);
 app.use('/admin_delete', adminDeleteRouter);
 app.use('/register', registerRouter);
 app.use('/profile', profileRouter);

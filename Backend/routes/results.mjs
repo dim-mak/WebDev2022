@@ -37,11 +37,17 @@ router.route('/').get(function (req, res) {
 
     db.all("SELECT * FROM FLIGHT WHERE depart_date = ? AND depart_airport = ? AND dest_airport = ? LIMIT 5", [data.trip_start, data.search_from, data.search_to], function (err, rows) {
         // console.log(rows);
+        if (rows && rows.length) {
 
+            for (let i of rows) {
 
-        for (let i of rows) {
-
-            flights.push({ "flightId": i.flight_id, "departAirport": departAirport, "arrivalAirport": arrivalAirport, "departDate": i.depart_date, "arrivalDate": i.arrival_date, "departTime": i.depart_time, "arrivalTime": i.arrival_time, "airline": i.airline });
+                flights.push({ "flightId": i.flight_id, "departAirport": departAirport, "arrivalAirport": arrivalAirport, "departDate": i.depart_date, "arrivalDate": i.arrival_date, "departTime": i.depart_time, "arrivalTime": i.arrival_time, "airline": i.airline });
+            }
+            if (data.trip_end == undefined) {
+                res.render('results', { oneWay: oneWay, departCity: departCity, arrivalCity: arrivalCity, flights: flights, flightsBack: flightsBack, alertRender: false });
+            }
+        } else {
+            res.render('results', { oneWay: oneWay, departCity: departCity, arrivalCity: arrivalCity, flights: flights, flightsBack: flightsBack, alertRender: true });
         }
 
     });
@@ -49,22 +55,29 @@ router.route('/').get(function (req, res) {
 
     if (data.trip_end != undefined) {
 
-        console.log("There is a return flight");
+        // console.log("There is a return flight");
 
         db.all("SELECT * FROM FLIGHT WHERE depart_date = ? AND depart_airport = ? AND dest_airport = ? LIMIT 5", [data.trip_end, data.search_to, data.search_from], function (err, rows) {
             // console.log(rows);
 
-            for (let i of rows) {
+            if (rows && rows.length > 0) {
 
-                flightsBack.push({ "flightIdBack": i.flight_id, "departAirportBack": arrivalAirport, "arrivalAirportBack": departAirport, "departDateBack": i.depart_date, "arrivalDateBack": i.arrival_date, "departTimeBack": i.depart_time, "arrivalTimeBack": i.arrival_time, "airlineBack": i.airline });
+                for (let i of rows) {
+
+                    flightsBack.push({ "flightIdBack": i.flight_id, "departAirportBack": arrivalAirport, "arrivalAirportBack": departAirport, "departDateBack": i.depart_date, "arrivalDateBack": i.arrival_date, "departTimeBack": i.depart_time, "arrivalTimeBack": i.arrival_time, "airlineBack": i.airline });
+                }
+                res.render('results', { oneWay: oneWay, departCity: departCity, arrivalCity: arrivalCity, flights: flights, flightsBack: flightsBack, alertRender: false });
+
+            } else {
+                res.render('results', { oneWay: oneWay, departCity: departCity, arrivalCity: arrivalCity, flights: flights, flightsBack: flightsBack, alertRender: true });
             }
         });
 
     }
 
-    res.render('results', { oneWay, departCity, arrivalCity, flights, flightsBack: oneWay, departCity, arrivalCity, flights, flightsBack });
-
 });
+
+
 
 router.route('/get').get(function (req, res) {
     let f = req.query;

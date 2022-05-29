@@ -104,3 +104,24 @@ input[type="submit"] {
 .effect {
     border: 20px solid red;
 }
+
+
+.alert {
+    margin: 0 auto;
+    text-align: center;
+    width: 50%;
+    max-width: 1224px;
+}
+
+
+@media (max-width: 767px) {
+    .alert {
+        width: 65%;
+    }
+}
+
+@media (max-width: 425px) {
+    .alert {
+        width: 90%;
+    }
+}
