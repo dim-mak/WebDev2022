@@ -193,6 +193,9 @@ router.route('/add').get(function (req, res) {
             db.serialize(() => {
                 // TODO: change F.flight_id = ? with the flight imported from results
                 db.run("UPDATE SEAT SET occupied = 1 WHERE flight_id = 3 AND code = ? ", [i], function (err, rows) {
+                    if (err) {
+                        return console.log(err.message);
+                    }
                     // console.log(rows)
                 });
             });
@@ -205,6 +208,9 @@ router.route('/add').get(function (req, res) {
         db.serialize(() => {
             // TODO: change F.flight_id = ? with the flight imported from results
             db.all("SELECT * FROM SEAT AS S JOIN FLIGHT AS F ON S.flight_id = F.flight_id WHERE F.flight_id = 1 ", [], function (err, rows) {
+                if (err) {
+                    return console.log(err.message);
+                }
                 // console.log(rows)
 
                 for (let j of rows) {

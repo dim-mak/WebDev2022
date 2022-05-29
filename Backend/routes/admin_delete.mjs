@@ -18,6 +18,9 @@ router.route('/delete').get(function (req, res) {
 
     db.serialize(() => {
         db.all("SELECT email FROM USER WHERE email = ?", req.query.user_email, function (err, rows) {
+            if (err) {
+                return console.log(err.message);
+            }
             console.log(rows);
 
             if (rows && rows.length > 0) {
