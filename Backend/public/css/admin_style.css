@@ -1,0 +1,109 @@
+body {
+    font-family: 'Manrope', 'Roboto', sans-serif;
+}
+
+header,
+footer {
+    min-height: 15vh;
+}
+
+section {
+    min-height: 70vh;
+}
+
+section {
+    padding-top: 3%;
+    padding-bottom: 5%;
+}
+
+section button {
+    margin: 2% !important;
+    background-color: #457b9d !important;
+    border-color: #457b9d !important;
+    color: #f1faee !important;
+    font-weight: bold;
+}
+
+section button:hover {
+    background-color: #1d3557 !important;
+    border-color: #1d3557 !important;
+}
+
+section .btn-close {
+    background-color: white !important;
+}
+
+section .btn-close:hover {
+    background-color: white !important;
+    border-color: white !important;
+}
+
+section h1 {
+    color: #1d3557;
+    text-align: center !important;
+    font-size: 2.0em;
+}
+
+section h2 {
+    color: #1d3557;
+    font-size: 1.5em;
+}
+
+section .col-md {
+    margin-bottom: 1%;
+    margin-left: 3%;
+    margin-right: 3%;
+}
+
+section label {
+    color: #1d3557;
+    font-size: 1.5em;
+}
+
+#alerts {
+    margin: 0 auto;
+    text-align: center;
+    width: 35%;
+    margin-bottom: 5%;
+    max-width: 504px;
+}
+
+section button a {
+    text-decoration: none;
+    color: #f1faee;
+}
+
+section button a:hover {
+    color: #f1faee;
+}
+
+@media (max-width: 767px) {
+    #alerts {
+        width: 90% !important;
+    }
+}
+
+.modal label {
+    font-size: 1.0em !important;
+}
+
+.modal #alerts {
+    width: 80%;
+}
+
+.table {
+    color: #1d3557 !important
+}
+
+.table th {
+    font-size: 1.3em;
+}
+
+.table tr {
+    text-align: center;
+}
+
+
+#view-all {
+    text-align: center;
+}

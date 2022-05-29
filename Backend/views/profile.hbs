@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="/css/profile_style.css" />
+
+	<!-- Bootstrap -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+	<!-- Fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300&display=swap" rel="stylesheet">
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+	<section>
+		<div id="prof-title">
+			<h1><b>Profile</b>
+				<svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor"
+					class="bi bi-person-square" viewBox="0 0 20 20">
+					<path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+					<path
+						d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm12 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1v-1c0-1-1-4-6-4s-6 3-6 4v1a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12z" />
+				</svg>
+			</h1>
+		</div>
+
+		<form class="container" action="/profile/update" method="GET">
+			<h2>Personal Information</h2>
+			<div class="row">
+				<div class="col-md">
+					<label for="prof_first">First Name</label>
+					<input type="text" class="form-control" id="prof_first" name="fname" value="{{data.fname}}" required
+						disabled />
+				</div>
+
+				<div class="col-md">
+					<label for="prof_last">Last Name</label>
+					<input type="text" class="form-control" id="prof_last" name="lname" value="{{data.lname}}" required
+						disabled />
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md">
+					<label for="prof_email">Email</label>
+					<input type="email" class="form-control" id="prof_email" value="{{data.email}}" required disabled />
+				</div>
+
+				<div class="col-md">
+					<label for="prof_sex">Gender</label>
+					<select id="prof_sex" name="sex" selected="{{data.gender}}" class="form-control" required disabled>
+						<option value="Male">Male</option>
+						<option value="Female">Female</option>
+					</select>
+				</div>
+			</div>
+
+			<h2>Address</h2>
+			<div class="row">
+				<div class="col-md">
+					<label for="prof_str">Street</label>
+					<input type="text" class="form-control" id="prof_str" name="street" value="{{data.street}}" required
+						disabled />
+				</div>
+
+				<div class="col-md">
+					<label for="prof_num">Number</label>
+					<input type="text" class="form-control" id="prof_num" name="street_no" value="{{data.street_no}}"
+						required disabled />
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md">
+					<label for="prof_city">City</label>
+					<input type="text" class="form-control" id="prof_city" name="city" value="{{data.city}}" required
+						disabled />
+				</div>
+
+				<div class="col-md">
+					<label for="prof_state">Region</label>
+					<input type="text" class="form-control" id="prof_state" name="region" value="{{data.region}}"
+						disabled />
+				</div>
+
+			</div>
+
+			<div class="row">
+				<div class="col-md">
+					<label for="prof_taxcode">Zip Code</label>
+					<input type="text" class="form-control" id="prof_taxcode" name="zip_code" value="{{data.zip_code}}"
+						required disabled />
+				</div>
+
+				<div class="col-md">
+					<label for="prof_country">Country</label>
+					<input type="text" class="form-control" id="prof_country" name="country" value="{{data.country}}"
+						required disabled />
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md text-center">
+					<button class="btn btn-danger" type="button" id="prof_btn_edit"
+						onclick="editProfile()">Edit</button>
+					<button class="btn btn-danger" type="submit" id="prof_btn_save">Save</button>
+				</div>
+
+				<div class="col-md text-center">
+					<a href="/tickets">
+						<button class="btn btn-primary" type="button" id="prof_btn_tickets">My Tickets</button>
+					</a>
+				</div>
+
+			</div>
+
+		</form>
+
+
+		{{#if alertRender}}
+		<div>
+			<div class="alert alert-success">
+				<b>Personal information updated successfully.</b>
+			</div>
+		</div>
+		{{/if}}
+
+
+	</section>
+
+</body>
+
+<script src="/js/profile_scripts.js"></script>
+
+</html>

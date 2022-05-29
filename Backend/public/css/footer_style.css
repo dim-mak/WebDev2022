@@ -1,0 +1,110 @@
+body {
+	font-family: 'Manrope', 'Roboto', sans-serif;
+}
+
+footer {
+	background-color: #1d3557 !important;
+}
+
+.footer-copyright {
+	background-color: #10243f;
+	color: #f1faee;
+	font-size: 1.1em;
+}
+
+footer .container {
+	margin-bottom: 1%;
+}
+
+#company_name {
+	text-decoration: none;
+	color: #e63946;
+}
+
+#company_name:hover {
+	text-decoration: underline;
+}
+
+footer #logo {
+	width: 300px;
+	height: auto;
+}
+
+footer #logo-img {
+	display: flex;
+	align-items: center;
+}
+
+#com-title,
+#info-title {
+	color: #f1faee;
+	font-size: 1.8em;
+}
+
+.social_media {
+	text-decoration: none;
+	color: #f1faee;
+}
+
+.social_media:hover {
+	color: #e63946;
+}
+
+
+footer .col {
+	text-align: center;
+	margin-top: 3% !important;
+}
+
+#tel {
+	color: #f1faee;
+}
+
+#loc,
+#info a {
+	text-decoration: none;
+	color: #f1faee;
+}
+
+#loc:hover,
+#info a:hover {
+	color: #e63946;
+}
+
+
+#comms {
+	margin-top: 3%;
+	margin-bottom: 5%;
+}
+
+
+#info a {
+	display: block;
+	margin: 2.5%;
+}
+
+
+@media (max-width: 992px) and (min-width: 510px) {
+	footer .col {
+		display: block !important;
+	}
+
+	footer #logo {
+		width: 500px;
+		height: auto;
+	}
+}
+
+
+@media (max-width: 510px) {
+	footer #logo {
+		width: 300px;
+		height: auto;
+		text-align: center;
+	}
+
+	footer #logo-img {
+		text-align: center;
+		justify-content: center;
+	}
+}

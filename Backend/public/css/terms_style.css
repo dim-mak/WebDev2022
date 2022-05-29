@@ -1,0 +1,15 @@
+body {
+    font-family: 'Manrope', 'Roboto', sans-serif;
+}
+
+section h1,
+section h2,
+section h3 {
+    color: #1d3557;
+}
+
+section svg {
+    width: 150px;
+    height: auto;
+    margin: 2%
+}
