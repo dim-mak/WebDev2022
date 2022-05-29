@@ -136,8 +136,9 @@ router.route('/').get(function (req, res) {
 
 router.route('/get').get(function (req, res) {
     let f = req.query;
+    console.log("hiIN")
     console.log(f);
-    console.log("hi")
+    console.log("hiOUT")
 
     res.redirect('/seats');
 });
