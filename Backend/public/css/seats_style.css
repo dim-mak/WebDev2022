@@ -2,7 +2,8 @@ body {
   font-family: 'Manrope', 'Roboto', sans-serif;
 }
 
-header, footer {
+header,
+footer {
   min-height: 15vh;
 }
 
@@ -250,4 +251,23 @@ section h1 {
     font-size: 1.8em;
   }
 
+}
+
+.alert {
+  margin: 0 auto;
+  text-align: center;
+  width: 30%;
+  max-width: 1224px;
+}
+
+@media (max-width: 767px) {
+  .alert {
+    width: 65%;
+  }
+}
+
+@media (max-width: 425px) {
+  .alert {
+    width: 90%;
+  }
 }

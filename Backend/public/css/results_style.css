@@ -54,19 +54,6 @@ section .col {
     text-align: center;
 }
 
-section .gold p {
-    color: goldenrod;
-}
-
-section .bussiness p {
-    color: #887f77;
-}
-
-section .prices {
-    font-size: 0.7em;
-    font-weight: bold;
-}
-
 section a {
     text-decoration: none;
 }
