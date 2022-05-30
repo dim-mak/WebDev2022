@@ -21,7 +21,7 @@ router.route('/').get(function (req, res) {
         // console.log(rows);
         data = rows[0];
 
-        res.render('profile', { data: data });
+        res.render('profile', { data: data , session: gffwgfjw});
     });
 
 });
