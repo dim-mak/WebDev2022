@@ -1,0 +1,60 @@
+body {
+    font-family: 'Manrope', 'Roboto', sans-serif;
+}
+
+header {
+    background-color: #1d3557;
+}
+
+header #logo {
+    width: 220px;
+    height: auto;
+}
+
+.navbar-buttons {
+    color: #f1faee !important;
+    font-size: 20px;
+}
+
+.navbar-buttons:hover {
+    color: #e63946 !important;
+}
+
+.nav-item {
+    text-align: center;
+}
+
+header p {
+    white-space: nowrap;
+}
+
+.navbar-toggler {
+    color: transparent;
+}
+
+.navbar-toggler:focus {
+    background-color: #457b9d
+}
+
+
+@media (max-width: 991px) {
+    .navbar-buttons {
+        float: left;
+    }
+
+    header p {
+        display: inline;
+    }
+	
+	.navbar-toggler {
+		float: right;
+	}
+}
+
+@media (max-width: 330px) {
+    .navbar-buttons {
+        font-size: 18px;
+    }
+}
+
+

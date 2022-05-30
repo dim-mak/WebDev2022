@@ -1,0 +1,173 @@
+body {
+    font-family: 'Manrope', 'Roboto', sans-serif;
+    background-image: url(../img/login_bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+header,
+footer {
+    min-height: 15vh;
+}
+
+section {
+    min-height: 70vh;
+}
+
+section #submit_btn a {
+    text-decoration: none;
+    color: #f1faee !important;
+}
+
+#logo {
+    width: auto;
+    height: 130px;
+    padding-bottom: 1.5em;
+}
+
+#submit_btn {
+    margin: 5% !important;
+    margin-top: 8% !important;
+    background-color: #457b9d !important;
+    border-color: #457b9d !important;
+    color: #f1faee !important;
+    font-weight: bold;
+}
+
+#submit_btn:hover {
+    background-color: #1d3557 !important;
+    border-color: #1d3557 !important;
+}
+
+section a {
+    color: #1d3557 !important;
+}
+
+section {
+    margin-bottom: 15%;
+}
+
+.card-body {
+    padding-bottom: 0% !important;
+    margin-bottom: 0% !important;
+    padding-top: 0% !important;
+}
+
+.card {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(25%);
+    box-shadow: 4px 4px 10px 1px #000000;
+    border-radius: 5% !important;
+    padding-top: 10% !important;
+}
+
+
+#mail {
+    margin-bottom: 5%;
+    width: 85%;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#pswd {
+    width: 85%;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#rem_me {
+    text-align: left !important;
+    padding-left: 8%;
+    padding-top: 5%;
+}
+
+#forgot_pswd {
+    display: inline;
+    margin-left: 27%;
+    text-decoration: none;
+}
+
+#forgot_pswd:hover {
+    text-decoration: underline;
+}
+
+#create {
+    margin: 3% !important;
+}
+
+#create_account {
+    text-decoration: none;
+}
+
+#create_account:hover {
+    text-decoration: underline;
+}
+
+
+@media (max-width: 1262px) {
+    body {
+        background-color: #457b9d !important;
+        background-image: none !important;
+    }
+
+    section {
+        margin-bottom: 40% !important;
+    }
+}
+
+
+
+
+@media (max-width: 1399px) and (min-width: 768px) {
+    #forgot_pswd {
+        margin-left: 17% !important;
+    }
+}
+
+
+@media (max-width: 767px) {
+    #rem_me {
+        margin-top: 4%;
+        text-align: center !important;
+        display: block;
+        padding-left: 0%;
+        padding-top: 0%;
+        justify-content: center !important;
+    }
+
+    #forgot_pswd {
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        text-align: center !important;
+
+    }
+
+}
+
+
+@media (max-width: 460px) {
+    section {
+        margin-bottom: 60% !important;
+    }
+}
+
+@media (max-width: 420px) {
+    #logo {
+        height: 100px;
+        width: auto;
+    }
+
+    section {
+        margin-bottom: 70% !important;
+    }
+}
+
+
+.alert-danger {
+    margin-top: 5%;
+}

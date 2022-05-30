@@ -1,0 +1,127 @@
+body {
+    font-family: 'Manrope', 'Roboto', sans-serif;
+    overflow-x: hidden;
+}
+
+header,
+footer {
+    min-height: 15vh;
+}
+
+section {
+    min-height: 70vh;
+}
+
+
+section h1,
+section h2 {
+    color: #1d3557;
+}
+
+section h1 {
+    margin: 2%;
+    text-align: center !important;
+    font-size: 2.0em;
+}
+
+section h2 {
+    text-align: center !important;
+    font-size: 1.5em;
+    margin: 1%;
+}
+
+section .role {
+    font-weight: bold;
+    color: #1d3557;
+    margin-top: 20px;
+}
+
+section .email {
+    font-weight: bold;
+    color: #1d3557;
+    display: inline;
+}
+
+section .details {
+    height: 200px;
+}
+
+/* section .row .card {
+    justify-content: center;
+} */
+
+section .col-xl-4 .photo {
+    background-size: cover;
+    aspect-ratio: 1;
+    margin: 3% auto;
+    text-align: center !important;
+    width: 220px;
+    border-radius: 50%;
+    border: 2px solid #1d3557;
+}
+
+section .col-xl-4:nth-child(1) .photo {
+    background-image: url("../img/dimitrios_makris.jpg");
+}
+
+section .col-xl-4:nth-child(2) .photo {
+    background-image: url("../img/evangelia_gkagka.jpg");
+}
+
+section .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin: 10%;
+}
+
+section .container {
+    margin-bottom: 8%;
+}
+
+section svg {
+    color: #1d3557;
+}
+
+section .email-link {
+    text-decoration: none;
+}
+
+section .email-link:hover {
+    text-decoration: underline;
+    text-decoration-color: #1d3557;
+}
+
+section .row {
+    justify-content: center;
+}
+
+section p {
+    color: #1d3557;
+}
+
+
+section .photo {
+    text-align: center;
+}
+
+
+@media (max-width: 376px) {
+    section h2 {
+        font-size: 1.0em;
+    }
+
+    section .name {
+        font-size: 1.5em;
+    }
+}
+
+@media (max-width: 992px) {
+    section .details {
+        height: auto;
+    }
+}
+
+@media (max-width: 1366px) {
+    section .details {
+        height: 250px;
+    }
+}
