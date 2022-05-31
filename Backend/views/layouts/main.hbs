@@ -33,13 +33,23 @@
 </head>
 
 <body>
-    {{#if session.loggedin}}
-    {{> header}}
+    {{#if userEmail}}
+        {{#if isAdmin}}
+            {{>admin_header}}
+        {{else}}
+            {{> header_connected}}
+        {{/if}}
     {{else}}
-    {{> header_connected}}
+        {{> header}}
     {{/if}}
+
     {{{body}}}
-    {{> footer}}
+
+    {{#if isAdmin}}
+        {{> admin_footer}}
+    {{else}}
+        {{> footer}}
+    {{/if}}
 </body>
 
 </html>
