@@ -25,7 +25,7 @@ const tripEnd = document.querySelector('#trip-end');
 const defTripStart = new Date(); //today
 let defTripEnd = new Date();
 
-defTripEnd.setDate(defTripStart.getDate() + 7); //7 days after
+defTripEnd.setDate(defTripStart.getDate() + 3); //3 days after
 
 tripStart.valueAsDate = defTripStart;
 tripEnd.valueAsDate = defTripEnd;
@@ -36,6 +36,9 @@ let today1 = new Date();
 today1 = translateDate(today1)
 tripStart.setAttribute("min", today1);
 
+// 30/06 is max trip start and end date
+tripStart.max = "2022-06-30"
+tripEnd.max = "2022-06-30"
 
 // *init* today + 1 is the default min trip end date
 const today2 = new Date();
@@ -55,11 +58,11 @@ tripStart.addEventListener('change', (event) => {
 });
 
 
-// tripStart + 7 days is default trip end date 
+// tripStart + 3 days is default trip end date 
 tripStart.addEventListener('change', (event) => {
     let tempTripEnd = new Date();
     let tripStartVal = tripStart.valueAsDate;
-    tempTripEnd.setDate(tripStartVal.getDate() + 7);
+    tempTripEnd.setDate(tripStartVal.getDate() + 3);
     tripEnd.valueAsDate = tempTripEnd;
 });
 
