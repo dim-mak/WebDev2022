@@ -2,6 +2,8 @@
 
 import { db } from './db.mjs'
 
+
+
 const seats = ['1A', '1B', '1C', '1D', '1E', '1F',
     '2A', '2B', '2C', '2D', '2E', '2F',
     '3A', '3B', '3C', '3D', '3E', '3F',
@@ -44,7 +46,7 @@ function getPrice(min, max) {
 }
 
 
-function addSeatData(resObj, flightId) {
+function addSeatData(resObj, j) {
 
     for (let i of resObj.fullSeats) {
         let seat_type, price;
@@ -63,7 +65,7 @@ function addSeatData(resObj, flightId) {
 
         db.serialize(() => {
 
-            db.run('INSERT INTO SEAT(occupied, code, seat_type, price, flight_id) VALUES(1,?,?,?,?)', [i, seat_type, price, flightId], function (err) {
+            db.run('INSERT INTO SEAT(occupied, code, seat_type, price, flight_id) VALUES(1,?,?,?,?)', [i, seat_type, price, j], function (err) {
                 if (err) {
                     return console.log(err.message);
                 }
@@ -101,7 +103,7 @@ function addSeatData(resObj, flightId) {
 
 
         db.serialize(() => {
-            db.run('INSERT INTO SEAT(occupied, code, seat_type, price, flight_id) VALUES(0,?,?,?,?)', [i, seat_type, price, flightId], function (err) {
+            db.run('INSERT INTO SEAT(occupied, code, seat_type, price, flight_id) VALUES(0,?,?,?,?)', [i, seat_type, price, j], function (err) {
                 if (err) {
                     return console.log(err.message);
                 }
@@ -112,37 +114,26 @@ function addSeatData(resObj, flightId) {
 }
 
 
-let goldPrice = getPrice(1000, 2000)
-let bussPrice = getPrice(500, 800)
-let ecoPrice = getPrice(100, 400)
 
-let fullSeats = getSeats();
-
-let resObj = { goldPrice: goldPrice, bussPrice: bussPrice, ecoPrice: ecoPrice, fullSeats: fullSeats }
 
 // console.log(resObj.goldPrice, resObj.bussPrice, resObj.ecoPrice, resObj.fullSeats);
 
 
-db.get("SELECT MAX(flight_id) AS max FROM FLIGHT", function (err, rows) {
-    // console.log(rows.max);
-    let id = rows.max;
 
-    exportFlightId(id);
+for (let j = 1529; j < 19294; j++) {
+    let goldPrice = getPrice(1000, 2000)
+    let bussPrice = getPrice(500, 800)
+    let ecoPrice = getPrice(100, 400)
 
-});
+    let fullSeats = getSeats();
 
-let flightId
-function exportFlightId(id) {
-    // console.log(id)
-    flightId = id;
-    // console.log(flightId) 
-    addSeatData(resObj, 3)
-
+    let resObj = { goldPrice: goldPrice, bussPrice: bussPrice, ecoPrice: ecoPrice, fullSeats: fullSeats }
+    addSeatData(resObj, j)
+    // console.log(j)
 }
 
 
 
-// addSeatData(resObj)
 
 
 

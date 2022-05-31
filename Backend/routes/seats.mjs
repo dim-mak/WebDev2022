@@ -1,6 +1,7 @@
 import express from 'express'
 import { engine } from 'express-handlebars';
-import { data as data } from './search.mjs';
+import { data as searchData } from './search.mjs';
+import { data as userData } from './results.mjs';
 
 const app = express()
 const router = express.Router();
@@ -48,10 +49,10 @@ let gold, buss, eco;
 
 
 router.route('/').get(function (req, res) {
+    // console.log(userData);
 
     db.serialize(() => {
-        // TODO: change F.flight_id = ? with the flight imported from results
-        db.all("SELECT * FROM SEAT AS S JOIN FLIGHT AS F ON S.flight_id = F.flight_id WHERE F.flight_id = 3 ", [], function (err, rows) {
+        db.all("SELECT * FROM SEAT AS S JOIN FLIGHT AS F ON S.flight_id = F.flight_id WHERE F.flight_id = ? ", userData.options, function (err, rows) {
             // console.log(rows)
 
             for (let j of rows) {
@@ -180,10 +181,10 @@ router.route('/add').get(function (req, res) {
     // console.log(selectedSeats);
 
     let passengersNo;
-    if (data.minor_pass == '') {
-        passengersNo = parseInt(data.adult_pass);
+    if (searchData.minor_pass == '') {
+        passengersNo = parseInt(searchData.adult_pass);
     } else {
-        passengersNo = parseInt(data.minor_pass) + parseInt(data.adult_pass);
+        passengersNo = parseInt(searchData.minor_pass) + parseInt(searchData.adult_pass);
     }
     // console.log(passengersNo)
 
@@ -191,8 +192,7 @@ router.route('/add').get(function (req, res) {
 
         for (let i of selectedSeats) {
             db.serialize(() => {
-                // TODO: change F.flight_id = ? with the flight imported from results
-                db.run("UPDATE SEAT SET occupied = 1 WHERE flight_id = 3 AND code = ? ", [i], function (err, rows) {
+                db.run("UPDATE SEAT SET occupied = 1 WHERE flight_id = ? AND code = ? ", [userData.options, i], function (err, rows) {
                     if (err) {
                         return console.log(err.message);
                     }
@@ -201,13 +201,17 @@ router.route('/add').get(function (req, res) {
             });
         }
 
+        if (searchData.trip_end != undefined) {
+            res.redirect('/seats_back');
+        }
+        else {
+            res.redirect('/checkout');
+        }
 
-        res.redirect('/checkout');
     } else {
 
         db.serialize(() => {
-            // TODO: change F.flight_id = ? with the flight imported from results
-            db.all("SELECT * FROM SEAT AS S JOIN FLIGHT AS F ON S.flight_id = F.flight_id WHERE F.flight_id = 1 ", [], function (err, rows) {
+            db.all("SELECT * FROM SEAT AS S JOIN FLIGHT AS F ON S.flight_id = F.flight_id WHERE F.flight_id = ? ", [userData.options], function (err, rows) {
                 if (err) {
                     return console.log(err.message);
                 }
