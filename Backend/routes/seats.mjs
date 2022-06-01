@@ -175,9 +175,9 @@ router.route('/').get(function (req, res) {
 });
 
 
-
 router.route('/add').get(function (req, res) {
     let selectedSeats = Object.keys(req.query);
+    exportData(selectedSeats);
     // console.log(selectedSeats);
 
     let passengersNo;
@@ -341,6 +341,13 @@ router.route('/add').get(function (req, res) {
 
 });
 
+let seatsData;
+function exportData(data) {
+    // console.log(searchData);
+    seatsData = data;
+    // console.log(data);
 
+}
 
 export { router };
+export { seatsData };

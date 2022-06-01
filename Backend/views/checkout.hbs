@@ -27,8 +27,9 @@
 <body>
 
   <section>
+
     <h1>Payment Details</h1>
-    <form class="container">
+    <form class="container" action="/checkout/pay" method="GET">
       <div class="row justify-content-md-center">
         <div class="col-md-4">
           <label for="name-on-card">Name on Card</label>
@@ -57,7 +58,7 @@
 
       <div class="row justify-content-md-center pay-buttons">
         <div class="col-md-2 text-center">
-          <button type="button" class="btn btn-primary pay-btn">
+          <button type="submit" class="btn btn-primary pay-btn">
             <a href="/final">
               <b>Pay</b>
             </a>

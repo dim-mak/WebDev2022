@@ -34,28 +34,28 @@ router.route('/').get(function (req, res) {
 
         // console.log(departAirports);
 
-    });
-
-
-    db.all("SELECT dest_airport FROM FLIGHT", function (err, rows) {
-        if (err) {
-            return console.log(err.message);
-        }
-        let temp = [];
-        // console.log(rows);
-
-        for (let i of rows) {
-            if (temp.includes(i.dest_airport) === false) {
-                destinationAirports.push({ "destination": i.dest_airport });
-                temp.push(i.dest_airport);
+        db.all("SELECT dest_airport FROM FLIGHT", function (err, rows) {
+            if (err) {
+                return console.log(err.message);
             }
-        }
+            let temp = [];
+            // console.log(rows);
 
-        // console.log(destinationAirports);
+            for (let i of rows) {
+                if (temp.includes(i.dest_airport) === false) {
+                    destinationAirports.push({ "destination": i.dest_airport });
+                    temp.push(i.dest_airport);
+                }
+            }
+
+            // console.log(destinationAirports);
+
+            res.render('search', { departAirports, destinationAirports: departAirports, destinationAirports });
+
+        });
 
     });
 
-    res.render('search', { departAirports, destinationAirports: departAirports, destinationAirports });
 });
 
 router.route('/view').get(function (req, res) {

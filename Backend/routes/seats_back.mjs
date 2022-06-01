@@ -178,6 +178,7 @@ router.route('/').get(function (req, res) {
 router.route('/add').get(function (req, res) {
     let selectedSeats = Object.keys(req.query);
     // console.log(selectedSeats);
+    exportData(selectedSeats);
 
     let passengersNo;
     if (searchData.minor_pass == '') {
@@ -335,4 +336,13 @@ router.route('/add').get(function (req, res) {
 
 });
 
+let seatsDataBack;
+function exportData(data) {
+    // console.log(searchData);
+    seatsDataBack = data;
+    // console.log(data);
+
+}
+
 export { router };
+export { seatsDataBack };
