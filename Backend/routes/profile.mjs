@@ -39,7 +39,7 @@ router.route('/update').get(function (req, res) {
                 console.log("User profile updated");
 
 
-                db.all("SELECT * FROM USER WHERE email = ?", req.session.loggedUserEmail,function (err, rows) { 
+                db.all("SELECT * FROM USER WHERE email = ?", req.session.loggedUserEmail, function (err, rows) {
                     if (err) {
                         return console.log(err.message);
                     }

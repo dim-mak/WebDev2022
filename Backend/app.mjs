@@ -26,6 +26,7 @@ import { router as finalRouter } from './routes/final.mjs';
 import { router as forgotPswdRouter } from './routes/forgot_pswd.mjs';
 import { router as loginRouter } from './routes/login.mjs';
 import { router as logoutRouter } from './routes/logout.mjs';
+import { router as ticketsRouter } from './routes/tickets.mjs';
 
 
 app.use(session({
@@ -73,6 +74,7 @@ app.use('/final', logInController.checkAuthenticated, finalRouter);
 app.use('/forgot', forgotPswdRouter);
 app.use('/login', loginRouter);
 app.use('/logout', logoutRouter);
+app.use('/tickets', logInController.checkAuthenticated, ticketsRouter);
 
 let port = process.env.PORT || '3000';
 

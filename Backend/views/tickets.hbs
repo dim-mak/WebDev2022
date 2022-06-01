@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/tickets_style.css" />
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <section>
+
+        <div>
+            <h1><b>My Tickets</b>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-file-text" width="45"
+                    height="45" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <path d="M14 3v4a1 1 0 0 0 1 1h4"></path>
+                    <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z"></path>
+                    <line x1="9" y1="9" x2="10" y2="9"></line>
+                    <line x1="9" y1="13" x2="15" y2="13"></line>
+                    <line x1="9" y1="17" x2="15" y2="17"></line>
+                </svg>
+            </h1>
+        </div>
+
+        {{#each ticketData}}
+        <div class="card">
+            <img src="/img/qrcode.png" class="card-img-top" alt="Ticket QR Code">
+            <div class="card-body">
+                <h5 class="card-title">Ticket #{{ticketId}}</h5>
+
+                <p class="card-text lgbold"><b>Departure</b></p>
+                <hr>
+
+                <p class="card-text"><b>Depart Airport:</b> {{departAirport}}</p>
+                <p class="card-text"><b>Depart Date:</b> {{departDate}}</p>
+                <p class="card-text"><b>Depart Time:</b> {{departTime}}</p>
+
+                <p class="card-text lgbold"><b>Destination</b></p>
+                <hr>
+
+                <p class="card-text"><b>Arrival Airport:</b> {{destinationAirport}}</p>
+                <p class="card-text"><b>Arrival Date:</b> {{arrivalDate}}</p>
+                <p class="card-text"><b>Arrival Time:</b> {{arrivalTime}}</p>
+                <hr>
+                <p class="card-text"><b>Seat type:</b> {{seatType}}</p>
+                <p class="card-text"><b>Seat:</b> {{seatCode}}</p>
+
+            </div>
+        </div>
+        {{/each}}
+
+    </section>
+
+</body>
+
+</html>

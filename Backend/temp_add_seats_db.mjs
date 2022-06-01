@@ -120,7 +120,7 @@ function addSeatData(resObj, j) {
 
 
 
-for (let j = 10310; j < 19294; j++) {
+for (let j = 10868; j < 19294; j++) {
     let goldPrice = getPrice(1000, 2000)
     let bussPrice = getPrice(500, 800)
     let ecoPrice = getPrice(100, 400)
