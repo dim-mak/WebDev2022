@@ -33,7 +33,7 @@ router.route('/add').get(function (req, res) {
                         if (err) {
                             return console.log(err.message);
                         }
-                        // console.log("User added by admin");
+                        console.log("User added by admin with email: " + req.query.email);
                     });
                 res.render('admin_add', { alertRender: true, userAdded: true });
             }

@@ -28,7 +28,7 @@ router.route('/delete').get(function (req, res) {
                     if (err) {
                         return console.log(err.message);
                     }
-                    // console.log("User deleted by admin");
+                    console.log("User deleted by admin with email: " + req.query.user_email);
                 });
                 res.render('admin_delete', { alertRender: true, userDeleted: true });
             } else {

@@ -15,7 +15,7 @@ let data;
 
 
 router.route('/').get(function (req, res) {
-    db.all("SELECT * FROM USER WHERE email = ?", req.session.loggedUserEmail, function (err, rows) { // TODO: remove my email and add the one from the database
+    db.all("SELECT * FROM USER WHERE email = ?", req.session.loggedUserEmail, function (err, rows) { 
         if (err) {
             return console.log(err.message);
         }

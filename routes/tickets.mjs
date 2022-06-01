@@ -51,8 +51,6 @@ router.route('/').get(function (req, res) {
                                     "seatType": seat[0].seat_type, "seatCode": seat[0].code, "ticketId": ticket[j].ticket_id
                                 });
 
-
-
                                 // console.log(ticketData)
 
                             });
@@ -61,17 +59,21 @@ router.route('/').get(function (req, res) {
 
                     }
 
-                    res.render('tickets', { ticketData: ticketData });
-
                 });
             }
+
+            res.render('tickets', { ticketData: ticketData });
 
         })
 
 
     });
 
+
+
 });
+
+
 
 
 export { router };

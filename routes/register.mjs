@@ -55,7 +55,7 @@ router.route('/add').get(function (req, res) {
                                         if (err) {
                                             return console.log(err.message);
                                         }
-                                        console.log("User created account");
+                                        console.log("User created account with email: " + req.query.reg_email);
                                     });
                                 res.render('register', { alertRender: true, accountCreated: true });
                             }

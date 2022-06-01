@@ -74,6 +74,7 @@ router.route('/pay').get(function (req, res) {
                         if (searchData.one_way == 'on') {
 
                             res.redirect('/final');
+                            console.log("Reservation made");
 
                         } else {
 
@@ -96,6 +97,7 @@ router.route('/pay').get(function (req, res) {
                             }
 
                             res.redirect('/final');
+                            console.log("Reservation made");
 
                         }
 

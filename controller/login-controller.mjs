@@ -13,7 +13,7 @@ export let doLogin = function (req, res) {
 
     db.serialize(() => {
         db.all("SELECT * FROM USER WHERE email = ?", email, function (err, rows) {
-            console.log(rows)
+            // console.log(rows)
             if (err) {
                 console.log(err)
             }
@@ -27,9 +27,11 @@ export let doLogin = function (req, res) {
                         req.session.loggedIsAdmin = rows[0].isAdmin;
                         if (req.session.loggedIsAdmin == true) {
                             res.redirect("/admin_search");
+                            console.log("Admin logged in");
                         }
                         else {
                             res.redirect("/");
+                            console.log("User logged in");
                         }
                     }
                     else {
@@ -50,22 +52,20 @@ export let showLogInForm = function (req, res) {
 
 export let checkAuthenticated = function (req, res, next) {
     if (req.session.loggedUserEmail) {
-        console.log("user is authenticated", req.originalUrl);
+        console.log("User authenticated", req.originalUrl);
         next();
     }
     else {
-        console.log("not authenticated, redirecting to /login")
+        console.log("Not authenticated")
         res.redirect('/login');
     }
 }
 
 export let checkIsAdmin = function (req, res, next) {
     if (req.session.loggedIsAdmin == true) {
-        console.log("user is admin", req.originalUrl);
         next();
     }
     else {
-        console.log("not admin, redirecting to index")
         res.redirect('/');
     }
 }
