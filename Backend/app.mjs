@@ -63,7 +63,7 @@ app.use('/profile', logInController.checkAuthenticated, profileRouter);
 app.use('/', searchRouter);
 app.use('/results', resultsRouter);
 app.use('/seats', logInController.checkAuthenticated, seatsRouter);
-app.use('/seats_back', seatsBackRouter);
+app.use('/seats_back', logInController.checkAuthenticated, seatsBackRouter);
 app.use('/terms_of_use', termsRouter);
 app.use('/private_data_policy', policyRouter);
 app.use('/payment_methods', paymentRouter);

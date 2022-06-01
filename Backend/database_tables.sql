@@ -24,8 +24,7 @@ CREATE TABLE USER (
 
 CREATE TABLE RESERVATION (
 	res_id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-	price DECIMAL NOT NULL,
-	res_date TIMESTAMP NOT NULL,
+	res_date DATETIME DEFAULT CURRENT_TIMESTAMP,
 	adults_no INTEGER NOT NULL,
 	minors_no INTEGER NOT NULL,
 	passengers_no INTEGER NOT NULL,
@@ -37,7 +36,9 @@ CREATE TABLE RESERVATION (
 CREATE TABLE TICKET (
 	ticket_id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
 	res_id INTEGER NOT NULL,
-	FOREIGN KEY(res_id) REFERENCES RESERVATION(res_id)
+	seat_id INTEGER NOT NULL,
+	FOREIGN KEY(res_id) REFERENCES RESERVATION(res_id),
+	FOREIGN KEY(seat_id) REFERENCES RESERVATION(seat_id)
 );
 
 CREATE TABLE SEAT (
@@ -69,29 +70,13 @@ CREATE TABLE FLIGHT (
 -- 	FOREIGN KEY(seat_type_id) REFERENCES SEAT_TYPE(seat_type_id)
 -- );
 
-CREATE TABLE Ticket_Has_FlightSeat (
-	-- seat_id INTEGER NOT NULL,
-	ticket_id INTEGER NOT NULL,
-	flight_id INTEGER NOT NULL,
-	PRIMARY KEY (ticket_id, flight_id)
-	-- FOREIGN KEY(seat_id) REFERENCES SEAT(seat_id),
-	FOREIGN KEY(ticket_id) REFERENCES TICKET(ticket_id),
-	FOREIGN KEY(flight_id) REFERENCES FLIGHT(flight_id)
-);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+-- CREATE TABLE Ticket_Has_Seat (
+-- 	ticket_id INTEGER NOT NULL,
+-- 	seat_id INTEGER NOT NULL,
+-- 	PRIMARY KEY (ticket_id, seat_id),
+-- 	FOREIGN KEY(seat_id) REFERENCES SEAT(seat_id),
+-- 	FOREIGN KEY(ticket_id) REFERENCES TICKET(ticket_id)
+-- );
 
 
 
