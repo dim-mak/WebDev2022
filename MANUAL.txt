@@ -1,0 +1,19 @@
+#################### INSTRUCTIONS ####################
+
+
+1st WAY: Github
+
+(1) Go to: https://github.com/dim-mak/WebDev2022.git
+(2) Download code at main branch
+(3) Run 'npm install' on the command line to install the necessary modules
+(4) Run 'npm run watch' on the command line
+(5) Open your prefered browser
+(6) Go to localhost:3000/
+
+2nd WAY: Online
+
+(1) Go to: airskyproject.ml
+
+Note: The website is hosted on a raspberry pi 400 so for safety reasons it will be online on specific time slots
+
+
